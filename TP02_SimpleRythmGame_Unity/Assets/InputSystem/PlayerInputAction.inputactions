@@ -1,0 +1,94 @@
+{
+    "name": "PlayerInputAction",
+    "maps": [
+        {
+            "name": "Buzz",
+            "id": "a2af7f20-c422-42aa-b659-14a8f114e1f1",
+            "actions": [
+                {
+                    "name": "01_Main_red",
+                    "type": "Button",
+                    "id": "17bc7ca4-2abd-405e-895e-b0db26b9e292",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "01_Main_blue",
+                    "type": "Button",
+                    "id": "ea523000-439e-4363-b7a5-fc76949f122d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "01_Main_green",
+                    "type": "Button",
+                    "id": "1bcba964-85f4-4a7a-950a-6cd7d7462bee",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "01_Main_yellow",
+                    "type": "Button",
+                    "id": "5beab05e-99a7-4a8d-8646-3526ad8d1f7b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8d9e7cff-25b6-4d16-bb47-79c959d4951f",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button11",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "01_Main_red",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "45e424f1-a098-4868-b893-15dfe336a636",
+                    "path": "<Joystick>/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "01_Main_blue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6b38dca2-cec6-408d-b61b-d0e97ff436a8",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button16",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "01_Main_green",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1530024b-95b5-4f4a-a4f5-effb905051d7",
+                    "path": "<HID::Logitech Logitech Buzz(tm) Controller V1>/button6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "01_Main_yellow",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
