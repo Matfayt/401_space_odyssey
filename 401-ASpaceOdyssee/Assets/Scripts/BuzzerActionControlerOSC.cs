@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class BuzzerActionControlerOsc : MonoBehaviour
+public class BuzzerActionControlerOSC : MonoBehaviour
 {
     bool mIsActive = false;
     public OSC mOscControler;

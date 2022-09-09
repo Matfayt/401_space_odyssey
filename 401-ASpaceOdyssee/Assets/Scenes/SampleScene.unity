@@ -952,7 +952,7 @@ GameObject:
   - component: {fileID: 578477243}
   - component: {fileID: 578477242}
   - component: {fileID: 578477241}
-  - component: {fileID: 578477245}
+  - component: {fileID: 578477247}
   - component: {fileID: 578477244}
   - component: {fileID: 578477246}
   m_Layer: 0
@@ -1010,7 +1010,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: aa5242c9068c74818a9828154d0dcfed, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1071,8 +1071,8 @@ MonoBehaviour:
     m_ActionName: Buzzer/YR[/Namtai Buzz/button6]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 578477245}
-        m_TargetAssemblyTypeName: BuzzerActionControler, Assembly-CSharp
+      - m_Target: {fileID: 578477247}
+        m_TargetAssemblyTypeName: BuzzerActionControlerOSC, Assembly-CSharp
         m_MethodName: BuzzerPressed
         m_Mode: 0
         m_Arguments:
@@ -1130,20 +1130,6 @@ MonoBehaviour:
   m_DefaultActionMap: Buzzer
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &578477245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 578477239}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73487b841171f453698975596b834727, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mActiveMaterial: {fileID: 2100000, guid: 13b654290fe2441a8a96c9151bf22a4b, type: 2}
-  mInactiveMaterial: {fileID: 2100000, guid: aa5242c9068c74818a9828154d0dcfed, type: 2}
 --- !u!95 &578477246
 Animator:
   serializedVersion: 4
@@ -1164,6 +1150,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &578477247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578477239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a317fdf9a5d737146a358d1bfc8f5255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mOscControler: {fileID: 57235077}
+  mActiveMaterial: {fileID: 2100000, guid: 13b654290fe2441a8a96c9151bf22a4b, type: 2}
+  mInactiveMaterial: {fileID: 2100000, guid: aa5242c9068c74818a9828154d0dcfed, type: 2}
 --- !u!1001 &719040560
 PrefabInstance:
   m_ObjectHideFlags: 0
