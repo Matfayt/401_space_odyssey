@@ -34,5 +34,19 @@ public class BuzzerActionControlerOSC : MonoBehaviour
             }
         }
     }
+    int mBar, mBeat, mRawTick;
+
+    private void Start()
+    {
+        mOscControler.SetAddressHandler("/Bar", OnReceiveBar);
+        
+    }
+    void OnReceiveBar(OscMessage message)
+    {
+        mBar = message.GetInt(0);
+        Debug.Log("Bar = " + mBar);
+    }
+    
+
 }
 
