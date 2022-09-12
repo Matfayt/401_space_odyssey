@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
                 message.address = "/ButtonActive";
                 message.values.Add(playerButton);
                 mOscControler.Send(message);
-                WaitForSecondsRealtime(0.5);
+                Task.Delay(500);
                 GetComponent<MeshRenderer>().material = mInactiveMaterial;
 
             
