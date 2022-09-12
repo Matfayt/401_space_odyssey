@@ -11,11 +11,13 @@ public class Player : MonoBehaviour
     public int player, button;
     public Material mActiveMaterial;
     public Material mInactiveMaterial;
-    int mBar, mBeat, mRawTick, mTempo, mTime, mAbletonUnit, mAbletonMidiTick;
+    int mBar, mBeat, mRawTick, mTempo = 120, mTime, mAbletonUnit, mAbletonMidiTick;
     int loopBar = 4;
     public int i=0;
+    ArrayList sequence = new ArrayList();
 
-// Transport Receive
+
+    // Transport Receive
     private void Start()
     {
         mOscControler.SetAddressHandler("/Bar", OnReceiveBar);
@@ -57,6 +59,8 @@ public class Player : MonoBehaviour
 
     public void BuzzerPressed(InputAction.CallbackContext context)
     {
+        
+
         if (context.started)
         {
             mIsActive = !mIsActive;
@@ -71,9 +75,16 @@ public class Player : MonoBehaviour
                 mOscControler.Send(message);
 
                 Task.Delay(2000);
-                /*int v = (mBar % loopBar) / (mTempo / 60);
-                mTime = v;*/
+                
+                    int v = (mBar % loopBar) / (mTempo / 60);
+                    mTime = v;
+
+                sequence.Add(mTime);
+                sequence.Add(player*10 + button);
+                sequence.Add("\r");
+
                 Debug.Log("LoopTime = " + mTime);
+                Debug.Log("Sequence = seq");
 
                 
 
