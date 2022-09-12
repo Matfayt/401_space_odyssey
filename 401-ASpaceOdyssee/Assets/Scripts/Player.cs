@@ -1,18 +1,49 @@
-﻿using UnityEngine;
-using System.Collections;
-
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using System.Threading;
 
 public class Player : MonoBehaviour
 {
-	// Use this for initialization
-	void Start()
-	{
+    bool mIsActive = false;
+    public OSC mOscControler;
+    public int playerButton;
+    public Material mActiveMaterial;
+    public Material mInactiveMaterial;
+    int mBar, mBeat, mRawTick;
 
-	}
 
-	// Update is called once per frame
-	void Update()
-	{
-			
-	}
+    public void BuzzerPressed(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            mIsActive = !mIsActive;
+            if (mIsActive)
+            {
+                GetComponent<MeshRenderer>().material = mActiveMaterial;
+                OscMessage message = new OscMessage();
+                message.address = "/ButtonActive";
+                message.values.Add(playerButton);
+                mOscControler.Send(message);
+                WaitForSecondsRealtime(0.5);
+                GetComponent<MeshRenderer>().material = mInactiveMaterial;
+
+            
+          
+        }
+    }
+    
+
+    private void Start()
+    {
+        mOscControler.SetAddressHandler("/Bar", OnReceiveBar);
+
+    }
+    void OnReceiveBar(OscMessage message)
+    {
+        mBar = message.GetInt(0);
+        Debug.Log("Bar = " + mBar);
+    }
 }
+
