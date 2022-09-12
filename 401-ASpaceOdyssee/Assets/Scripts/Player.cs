@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Threading;
+using System.Threading.Tasks;
 
 public class Player : MonoBehaviour
 {
@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public Material mInactiveMaterial;
     int mBar, mBeat, mRawTick, mTempo, mTime;
     int loopBar = 4;
-    int i;
+    public int i;
 
     private void Start()
     {
@@ -49,21 +49,17 @@ public class Player : MonoBehaviour
                 message.values.Add(button);
                 mOscControler.Send(message);
 
-
-                
-
-
-               // mTime = (mBar % loopBar) / (mTempo / 60);
+                Task.Delay(2000);
+                // mTime = (mBar % loopBar) / (mTempo / 60) YAAAAAAAAAAA;
 
             }
             else
             {
                 GetComponent<MeshRenderer>().material = mInactiveMaterial;
             }
-            Thread.Sleep(1000);
-
         }
         
+
 
 
 
