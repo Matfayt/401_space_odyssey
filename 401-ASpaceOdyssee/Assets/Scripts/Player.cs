@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
                 sequence.Add("\r");
 
                 Debug.Log("LoopTime = " + mTime);
-                Debug.Log("Sequence = seq");
+                Debug.Log("Sequence =" + sequence);
 
                 
 
