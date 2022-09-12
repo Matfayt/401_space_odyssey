@@ -11,14 +11,19 @@ public class Player : MonoBehaviour
     public int player, button;
     public Material mActiveMaterial;
     public Material mInactiveMaterial;
-    int mBar, mBeat, mRawTick, mTempo, mTime;
+    int mBar, mBeat, mRawTick, mTempo, mTime, mAbletonUnit, mAbletonMidiTick;
     int loopBar = 4;
     int i;
 
+// Transport Receive
     private void Start()
     {
         mOscControler.SetAddressHandler("/Bar", OnReceiveBar);
         mOscControler.SetAddressHandler("/Tempo", OnReceiveTempo);
+        mOscControler.SetAddressHandler("/Beat", OnReceiveBeat);
+        mOscControler.SetAddressHandler("/AbletonUnit", OnReceiveAbletonUnit);
+        mOscControler.SetAddressHandler("/AbletonMidiTick", OnReceiveAbletonMidiTick);
+        
 
     }
 
@@ -31,6 +36,21 @@ public class Player : MonoBehaviour
     {
         mTempo = message.GetInt(0);
         Debug.Log("Tempo = " + mTempo);
+    }
+    void OnReceiveBeat(OscMessage message)
+    {
+        mBeat = message.GetInt(0);
+        Debug.Log("Beat = " + mBeat);
+    }
+    void OnReceiveAbletonUnit(OscMessage message)
+    {
+        mAbletonUnit = message.GetInt(0);
+        Debug.Log("AbletonUnit = " + mAbletonUnit);
+    }
+    void OnReceiveAbletonMidiTick(OscMessage message)
+    {
+        mAbletonMidiTick = message.GetInt(0);
+        Debug.Log("AbletonMidiTick = " + mAbletonMidiTick);
     }
 
     
@@ -60,7 +80,6 @@ public class Player : MonoBehaviour
             {
                 GetComponent<MeshRenderer>().material = mInactiveMaterial;
             }
-            Thread.Sleep(1000);
 
         }
         
