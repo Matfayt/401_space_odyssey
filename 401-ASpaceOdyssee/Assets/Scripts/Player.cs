@@ -77,13 +77,9 @@ public class Player : MonoBehaviour
             {
                 GetComponent<MeshRenderer>().material = mInactiveMaterial;
             }
-            Thread.Sleep(1000);
 
         }
         
-
-
-
 
     }
 }
