@@ -29,21 +29,21 @@ public class Player : MonoBehaviour
                 Task.Delay(500);
                 GetComponent<MeshRenderer>().material = mInactiveMaterial;
 
-            
-          
+
+
+            }
+        }
+
+
+        private void Start()
+        {
+            mOscControler.SetAddressHandler("/Bar", OnReceiveBar);
+
+        }
+        void OnReceiveBar(OscMessage message)
+        {
+            mBar = message.GetInt(0);
+            Debug.Log("Bar = " + mBar);
         }
     }
-    
-
-    private void Start()
-    {
-        mOscControler.SetAddressHandler("/Bar", OnReceiveBar);
-
-    }
-    void OnReceiveBar(OscMessage message)
-    {
-        mBar = message.GetInt(0);
-        Debug.Log("Bar = " + mBar);
-    }
 }
-
