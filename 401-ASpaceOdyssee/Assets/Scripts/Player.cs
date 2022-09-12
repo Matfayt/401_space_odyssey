@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public Material mInactiveMaterial;
     int mBar, mBeat, mRawTick, mTempo, mTime, mAbletonUnit, mAbletonMidiTick;
     int loopBar = 4;
-    public int i;
+    public int i=0;
 
 // Transport Receive
     private void Start()
@@ -63,6 +63,7 @@ public class Player : MonoBehaviour
             if (mIsActive)
             {
                 GetComponent<MeshRenderer>().material = mActiveMaterial;
+
                 OscMessage message = new OscMessage();
                 message.address = "/Event";
                 message.values.Add(player + (i*6));
@@ -70,7 +71,11 @@ public class Player : MonoBehaviour
                 mOscControler.Send(message);
 
                 Task.Delay(2000);
-                // mTime = (mBar % loopBar) / (mTempo / 60) YAAAAAAAAAAA;
+                /*int v = (mBar % loopBar) / (mTempo / 60);
+                mTime = v;*/
+                Debug.Log("LoopTime = " + mTime);
+
+                
 
             }
             else
