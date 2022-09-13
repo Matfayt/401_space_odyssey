@@ -65,10 +65,11 @@ public class PlayerControler : MonoBehaviour
             {
                 Buzzer1.BuzzerPressed(true);
                 Send.SendMessage(mIndexPlayer, 0);
-        }
+                Buzzer1.BuzzerPressed(false);
+            }
             else
             {
-                Buzzer1.BuzzerPressed(false);
+                
             }
             
         }
@@ -88,10 +89,11 @@ public class PlayerControler : MonoBehaviour
             {
                 Buzzer2.BuzzerPressed(true);
                 Send.SendMessage(mIndexPlayer, 1);
+                Buzzer2.BuzzerPressed(false);
             }
             else
             {
-                Buzzer2.BuzzerPressed(false);
+                
             }
 
         }
