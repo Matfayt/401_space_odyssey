@@ -70,7 +70,10 @@ public class ReceiveOSC : MonoBehaviour
         {
             send = mCurrentTime;
         }
-
+        else{
+            send = 0;
+        }
             return send;
+        
     }
 }
