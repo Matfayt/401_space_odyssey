@@ -17,9 +17,20 @@ public class GAME : MonoBehaviour
 
     public void CheckErrorByPlayer(int indexPLayer)
     {
+        int checkTot = 0;
         foreach(PlayerControler p in mPlayers)
         {
-         
+            checkTot += p.CheckPlayer(indexPLayer);
+
+        }
+        if(checkTot == 4)
+        {
+            indexLevel++;
+
+        }
+        else
+        {
+            
         }
     }
 
@@ -43,8 +54,7 @@ public class GAME : MonoBehaviour
        
     foreach(PlayerControler p in mPlayers)
         {
-          mCurrentLoopTime ==  mReceive.OnReceiveCurrentTime();
-
+          
            // mReceive.OnReceiveCurrentTime(mCurrentLoopTime);
             p.setCurrentTime(mCurrentLoopTime);
         }

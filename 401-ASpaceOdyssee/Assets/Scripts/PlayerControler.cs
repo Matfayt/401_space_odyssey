@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerControler : MonoBehaviour
 {
     public TextAsset[] mMidiEventsLevel;
-    public GAME gameControler;
+    //public GAME gameControler;
     public SendOSC Send;
     public BuzzerActionControler Buzzer1;
     public BuzzerActionControler Buzzer2;
@@ -58,7 +58,6 @@ public class PlayerControler : MonoBehaviour
             if (IsActionValid(0))
             {
                 v ++; 
-                //gameControler.CheckErrorByPlayer(mIndexPlayer);
 
             }
 
@@ -83,7 +82,6 @@ public class PlayerControler : MonoBehaviour
             if (IsActionValid(0))
             {
                 v++;
-                gameControler.CheckErrorByPlayer(mIndexPlayer);
             }
 
             mIsActive = !mIsActive;
@@ -100,14 +98,19 @@ public class PlayerControler : MonoBehaviour
         }
     }
 
-    public void CheckPlayer(int mIndexPlayer)
+    public int CheckPlayer(int mIndexPlayer)
     {
-        
+        int check = 0;
         if(v == nbTarget)
         {
 
-            //gameControler.CheckErrorByPlayer(mIndexPlayer);
+            check = 1;
         }
+        else
+        {
+            check = 0;
+        }
+        return check;
     }
 
     public void InitializeLevel(int indexLevel) //Pour tout level
