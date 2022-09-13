@@ -408,11 +408,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afebe968b64740d5bbc7bb99f0feeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mIsActive: 0
   mOscControler: {fileID: 0}
   player: 3
   button: 1
   mActiveMaterial: {fileID: 0}
   mInactiveMaterial: {fileID: 0}
+  mBar: 0
+  mBeat: 0
+  mRawTick: 0
+  mTempo: 120
+  mAbletonUnit: 0
+  mAbletonMidiTick: 0
+  mMs: 0
+  mCurrentTime: 0
+  loopBar: 4
   i: 0
 --- !u!114 &79243613
 MonoBehaviour:
@@ -637,6 +647,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 355795077}
+  - component: {fileID: 355795078}
   m_Layer: 0
   m_Name: Joueur2G
   m_TagString: Untagged
@@ -661,6 +672,23 @@ Transform:
   m_Father: {fileID: 1948444117}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &355795078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355795076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038217815e9b743b4be1b4944bacadd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mMidiEventsLevel:
+  - {fileID: 0}
+  gameControler: {fileID: 1979989913}
+  Send: {fileID: 548572906}
+  mIndexPlayer: 2
 --- !u!1 &444767503
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,11 +927,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afebe968b64740d5bbc7bb99f0feeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mIsActive: 0
   mOscControler: {fileID: 0}
   player: 4
   button: 1
   mActiveMaterial: {fileID: 0}
   mInactiveMaterial: {fileID: 0}
+  mBar: 0
+  mBeat: 0
+  mRawTick: 0
+  mTempo: 120
+  mAbletonUnit: 0
+  mAbletonMidiTick: 0
+  mMs: 0
+  mCurrentTime: 0
+  loopBar: 4
   i: 0
 --- !u!114 &444767512
 MonoBehaviour:
@@ -938,7 +976,6 @@ GameObject:
   - component: {fileID: 548560399}
   - component: {fileID: 548560401}
   - component: {fileID: 548560402}
-  - component: {fileID: 548560403}
   m_Layer: 0
   m_Name: J4_Blue
   m_TagString: Untagged
@@ -1160,29 +1197,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afebe968b64740d5bbc7bb99f0feeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mIsActive: 0
   mOscControler: {fileID: 0}
   player: 4
   button: 0
   mActiveMaterial: {fileID: 0}
   mInactiveMaterial: {fileID: 0}
+  mBar: 0
+  mBeat: 0
+  mRawTick: 0
+  mTempo: 120
+  mAbletonUnit: 0
+  mAbletonMidiTick: 0
+  mMs: 0
+  mCurrentTime: 0
+  loopBar: 4
   i: 0
---- !u!114 &548560403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 548560394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 038217815e9b743b4be1b4944bacadd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mMidiEventsLevel:
-  - {fileID: 0}
-  gameControler: {fileID: 1979989913}
-  Send: {fileID: 548572906}
-  mIndexPlayer: 4
 --- !u!1 &548572905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1245,7 +1275,6 @@ GameObject:
   - component: {fileID: 578477244}
   - component: {fileID: 578477246}
   - component: {fileID: 578477248}
-  - component: {fileID: 578477249}
   m_Layer: 0
   m_Name: J1_Blue
   m_TagString: Untagged
@@ -1453,29 +1482,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afebe968b64740d5bbc7bb99f0feeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mIsActive: 0
   mOscControler: {fileID: 57235077}
   player: 1
   button: 0
   mActiveMaterial: {fileID: 2100000, guid: 13b654290fe2441a8a96c9151bf22a4b, type: 2}
   mInactiveMaterial: {fileID: 2100000, guid: 05439923f001c4449972d8370b8e76fd, type: 2}
+  mBar: 0
+  mBeat: 0
+  mRawTick: 0
+  mTempo: 120
+  mAbletonUnit: 0
+  mAbletonMidiTick: 0
+  mMs: 0
+  mCurrentTime: 0
+  loopBar: 4
   i: 0
---- !u!114 &578477249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 578477239}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 038217815e9b743b4be1b4944bacadd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mMidiEventsLevel:
-  - {fileID: 0}
-  gameControler: {fileID: 1979989913}
-  Send: {fileID: 548572906}
-  mIndexPlayer: 1
 --- !u!1001 &719040560
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1561,7 +1583,6 @@ GameObject:
   - component: {fileID: 919168460}
   - component: {fileID: 919168462}
   - component: {fileID: 919168463}
-  - component: {fileID: 919168464}
   m_Layer: 0
   m_Name: J3_Blue
   m_TagString: Untagged
@@ -1783,29 +1804,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afebe968b64740d5bbc7bb99f0feeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mIsActive: 0
   mOscControler: {fileID: 0}
   player: 3
   button: 0
   mActiveMaterial: {fileID: 0}
   mInactiveMaterial: {fileID: 0}
+  mBar: 0
+  mBeat: 0
+  mRawTick: 0
+  mTempo: 120
+  mAbletonUnit: 0
+  mAbletonMidiTick: 0
+  mMs: 0
+  mCurrentTime: 0
+  loopBar: 4
   i: 0
---- !u!114 &919168464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919168455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 038217815e9b743b4be1b4944bacadd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mMidiEventsLevel:
-  - {fileID: 0}
-  gameControler: {fileID: 1979989913}
-  Send: {fileID: 548572906}
-  mIndexPlayer: 3
 --- !u!1 &960799356
 GameObject:
   m_ObjectHideFlags: 0
@@ -2013,7 +2027,6 @@ GameObject:
   - component: {fileID: 1066306376}
   - component: {fileID: 1066306378}
   - component: {fileID: 1066306379}
-  - component: {fileID: 1066306380}
   m_Layer: 0
   m_Name: J2_Yellow
   m_TagString: Untagged
@@ -2235,29 +2248,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afebe968b64740d5bbc7bb99f0feeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mIsActive: 0
   mOscControler: {fileID: 0}
   player: 2
   button: 1
   mActiveMaterial: {fileID: 0}
   mInactiveMaterial: {fileID: 0}
+  mBar: 0
+  mBeat: 0
+  mRawTick: 0
+  mTempo: 120
+  mAbletonUnit: 0
+  mAbletonMidiTick: 0
+  mMs: 0
+  mCurrentTime: 0
+  loopBar: 4
   i: 0
---- !u!114 &1066306380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1066306371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 038217815e9b743b4be1b4944bacadd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mMidiEventsLevel:
-  - {fileID: 0}
-  gameControler: {fileID: 1979989913}
-  Send: {fileID: 548572906}
-  mIndexPlayer: 2
 --- !u!1 &1094453198
 GameObject:
   m_ObjectHideFlags: 0
@@ -2496,11 +2502,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afebe968b64740d5bbc7bb99f0feeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mIsActive: 0
   mOscControler: {fileID: 0}
   player: 1
   button: 1
   mActiveMaterial: {fileID: 0}
   mInactiveMaterial: {fileID: 0}
+  mBar: 0
+  mBeat: 0
+  mRawTick: 0
+  mTempo: 120
+  mAbletonUnit: 0
+  mAbletonMidiTick: 0
+  mMs: 0
+  mCurrentTime: 0
+  loopBar: 4
   i: 0
 --- !u!114 &1094453207
 MonoBehaviour:
@@ -2756,11 +2772,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afebe968b64740d5bbc7bb99f0feeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mIsActive: 0
   mOscControler: {fileID: 0}
   player: 2
   button: 0
   mActiveMaterial: {fileID: 0}
   mInactiveMaterial: {fileID: 0}
+  mBar: 0
+  mBeat: 0
+  mRawTick: 0
+  mTempo: 120
+  mAbletonUnit: 0
+  mAbletonMidiTick: 0
+  mMs: 0
+  mCurrentTime: 0
+  loopBar: 4
   i: 0
 --- !u!114 &1108620849
 MonoBehaviour:
@@ -2793,6 +2819,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1651910056}
+  - component: {fileID: 1651910057}
   m_Layer: 0
   m_Name: Joueur4B
   m_TagString: Untagged
@@ -2817,6 +2844,23 @@ Transform:
   m_Father: {fileID: 1948444117}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &1651910057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651910055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038217815e9b743b4be1b4944bacadd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mMidiEventsLevel:
+  - {fileID: 0}
+  gameControler: {fileID: 1979989913}
+  Send: {fileID: 548572906}
+  mIndexPlayer: 4
 --- !u!1 &1864957192
 GameObject:
   m_ObjectHideFlags: 0
@@ -2920,6 +2964,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1933184167}
+  - component: {fileID: 1933184168}
   m_Layer: 0
   m_Name: Joueur3R
   m_TagString: Untagged
@@ -2944,6 +2989,23 @@ Transform:
   m_Father: {fileID: 1948444117}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1933184168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933184166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038217815e9b743b4be1b4944bacadd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mMidiEventsLevel:
+  - {fileID: 0}
+  gameControler: {fileID: 1979989913}
+  Send: {fileID: 548572906}
+  mIndexPlayer: 3
 --- !u!1 &1948444116
 GameObject:
   m_ObjectHideFlags: 0
@@ -3051,6 +3113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mPlayers: []
+  mSend: {fileID: 0}
+  mReceive: {fileID: 0}
   mOscChannel: {fileID: 57235077}
   mCurrentLoopTime: 0
 --- !u!1 &2132291534
@@ -3062,6 +3126,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2132291535}
+  - component: {fileID: 2132291536}
   m_Layer: 0
   m_Name: Joueur1Y
   m_TagString: Untagged
@@ -3086,3 +3151,20 @@ Transform:
   m_Father: {fileID: 1948444117}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2132291536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132291534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038217815e9b743b4be1b4944bacadd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mMidiEventsLevel:
+  - {fileID: 0}
+  gameControler: {fileID: 1979989913}
+  Send: {fileID: 548572906}
+  mIndexPlayer: 1

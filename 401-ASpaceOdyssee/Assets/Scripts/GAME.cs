@@ -7,6 +7,8 @@ public class GAME : MonoBehaviour
 
 {
     public PlayerControler[] mPlayers;
+    public SendOSC mSend;
+    public ReceiveOSC mReceive;
     public OSC mOscChannel;
     public float mCurrentLoopTime;
     //float mLoopLenghtTime = 56.443f;// lenght of the loop
@@ -24,27 +26,28 @@ public class GAME : MonoBehaviour
     void Start()
     {
         
-        mOscChannel.SetAddressHandler("/CurrentTime", OnReceiveCurrentTime);
+       // mOscChannel.SetAddressHandler("/CurrentTime", OnReceiveCurrentTime);
         foreach(PlayerControler p in mPlayers)
         {
             p.getCurrentLevel(indexLevel);
         }
     }
 
-    void OnReceiveCurrentTime(OscMessage message)
+   /* void OnReceiveCurrentTime(OscMessage message)
     {
         mCurrentLoopTime = message.GetFloat(0);
         Debug.Log("Current Time = " + mCurrentLoopTime);
-        foreach(PlayerControler p in mPlayers)
-        {
-            p.setCurrentTime(mCurrentLoopTime);
-        }
-    }
+        
+    }*/
 
     void Update()
     {
        
-
+    foreach(PlayerControler p in mPlayers)
+        {
+           // mReceive.OnReceiveCurrentTime(mCurrentLoopTime);
+            p.setCurrentTime(mCurrentLoopTime);
+        }
 
 
 
