@@ -11,10 +11,10 @@ public class Player : MonoBehaviour
     public int player, button;
     public Material mActiveMaterial;
     public Material mInactiveMaterial;
-    int mBar, mBeat, mRawTick, mTempo = 120, mTime, mAbletonUnit, mAbletonMidiTick;
+    int mBar, mBeat, mRawTick, mTempo = 120, mAbletonUnit, mAbletonMidiTick;
     int loopBar = 4;
     public int i=0;
-    ArrayList sequence = new ArrayList();
+    public ArrayList sequence = new ArrayList();
 
 
     // Transport Receive
@@ -76,12 +76,11 @@ public class Player : MonoBehaviour
 
                 Task.Delay(2000);
                 
-                    int v = (mBar % loopBar) / (mTempo / 60);
-                    mTime = v;
+                int mTime = (mBar % loopBar) / (mTempo / 60);
+                int[] temp = new int[] { mTime, player*10+button} ;
 
-                sequence.Add(mTime);
-                sequence.Add(player*10 + button);
-                sequence.Add("\r");
+
+                sequence.Add(temp);
 
                 Debug.Log("LoopTime = " + mTime);
                 Debug.Log("Sequence =" + sequence);
