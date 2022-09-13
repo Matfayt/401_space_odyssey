@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class ReceiveOSC : MonoBehaviour
 {
-    public GAME mGameControler;
+    //public GAME mGameControler;
     public OSC mOscControler;
     public int player, button;
     public int i=0;
@@ -57,10 +57,20 @@ public class ReceiveOSC : MonoBehaviour
         mMs = message.GetInt(0);
         Debug.Log("Ms = " + mMs);
     }
-    void OnReceiveCurrentTime(OscMessage message)
+    public void OnReceiveCurrentTime(OscMessage message)
     {
         mCurrentTime = message.GetInt(0);
-        mGameControler.ReceiveCurrentTime(mCurrentTime);
         Debug.Log("CurrentTime = " + mCurrentTime);
+    }
+
+    public float SendGlobal(char what)
+    { int send = 0;
+
+        if (what == mCurrentTime)
+        {
+            send = mCurrentTime;
+        }
+
+            return send;
     }
 }
