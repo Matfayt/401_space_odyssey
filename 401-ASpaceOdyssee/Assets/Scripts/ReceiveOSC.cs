@@ -57,23 +57,14 @@ public class ReceiveOSC : MonoBehaviour
         mMs = message.GetInt(0);
         Debug.Log("Ms = " + mMs);
     }
-    public void OnReceiveCurrentTime(OscMessage message)
+    void OnReceiveCurrentTime(OscMessage message)
     {
         mCurrentTime = message.GetInt(0);
         Debug.Log("CurrentTime = " + mCurrentTime);
     }
 
-    public float SendGlobal(char what)
-    { int send = 0;
-
-        if (what == mCurrentTime)
-        {
-            send = mCurrentTime;
-        }
-        else{
-            send = 0;
-        }
-            return send;
-        
+    public float SendCurrentTime()
+    {
+        return mCurrentTime;
     }
 }

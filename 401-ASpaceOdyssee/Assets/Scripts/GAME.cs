@@ -52,6 +52,8 @@ public class GAME : MonoBehaviour
 
     void Update()
     {
+        mCurrentLoopTime = mReceive.SendCurrentTime();
+        Debug.Log("GAME_CurrentLoopTim" + mCurrentLoopTime);
        
     foreach(PlayerControler p in mPlayers)
         {
