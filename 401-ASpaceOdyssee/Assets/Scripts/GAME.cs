@@ -44,6 +44,7 @@ public class GAME : MonoBehaviour
 
     public void ReceiveCurrentTime(float timing)
     {
+        mReceive.OnReceiveCurrentTime(timing);
         mCurrentLoopTime = timing;
         
     }
@@ -54,8 +55,8 @@ public class GAME : MonoBehaviour
        
     foreach(PlayerControler p in mPlayers)
         {
-          
-           // mReceive.OnReceiveCurrentTime(mCurrentLoopTime);
+            //char what = "mCurrentTime";
+           mReceive.SendGlobal(what)
             p.setCurrentTime(mCurrentLoopTime);
         }
 

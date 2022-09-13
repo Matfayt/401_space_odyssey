@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public class PlayerControler : MonoBehaviour
 {
     public TextAsset[] mMidiEventsLevel;
-    //public GAME gameControler;
     public SendOSC Send;
     public BuzzerActionControler Buzzer1;
     public BuzzerActionControler Buzzer2;

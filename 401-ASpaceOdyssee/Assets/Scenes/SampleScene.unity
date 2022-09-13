@@ -408,22 +408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afebe968b64740d5bbc7bb99f0feeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mIsActive: 0
-  mOscControler: {fileID: 0}
-  player: 3
-  button: 1
-  mActiveMaterial: {fileID: 0}
-  mInactiveMaterial: {fileID: 0}
-  mBar: 0
-  mBeat: 0
-  mRawTick: 0
-  mTempo: 120
-  mAbletonUnit: 0
-  mAbletonMidiTick: 0
-  mMs: 0
-  mCurrentTime: 0
-  loopBar: 4
-  i: 0
 --- !u!114 &79243613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,7 +422,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mMidiEventsLevel:
   - {fileID: 0}
-  gameControler: {fileID: 1979989913}
   Send: {fileID: 548572906}
   Buzzer1: {fileID: 0}
   Buzzer2: {fileID: 0}
@@ -638,9 +621,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a317fdf9a5d737146a358d1bfc8f5255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mIsActive: 0
   mOscControler: {fileID: 57235077}
   mActiveMaterial: {fileID: 2100000, guid: b728518cc0bb24087838221b66ab4141, type: 2}
   mInactiveMaterial: {fileID: 2100000, guid: aa5242c9068c74818a9828154d0dcfed, type: 2}
+  mBar: 0
+  mBeat: 0
+  mRawTick: 0
 --- !u!1 &355795076
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,6 +637,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 355795077}
+  - component: {fileID: 355795079}
   - component: {fileID: 355795078}
   m_Layer: 0
   m_Name: Joueur2G
@@ -689,12 +677,113 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mMidiEventsLevel:
   - {fileID: 0}
-  gameControler: {fileID: 1979989913}
   Send: {fileID: 548572906}
-  Buzzer1: {fileID: 0}
-  Buzzer2: {fileID: 0}
+  Buzzer1: {fileID: 1108620846}
+  Buzzer2: {fileID: 1066306377}
   mIndexPlayer: 2
   tolerance: 5
+--- !u!114 &355795079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355795076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 5c87e8c38bf96482c8554236c43b6b0c, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fa6a105a-99d5-4427-b88c-516458be2d84
+    m_ActionName: Buzzer/YR
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f1e41982-01e1-4fcc-ae4f-24b7fe55a648
+    m_ActionName: Buzzer/YB
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3e4b9fdf-6873-4682-b82e-dca89257ce77
+    m_ActionName: Buzzer/YY
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3e9ca2f8-02db-4d4c-a01c-42ebea766ab5
+    m_ActionName: Buzzer/GR
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 355795078}
+        m_TargetAssemblyTypeName: PlayerControler, Assembly-CSharp
+        m_MethodName: BuzzerButton1_Pressed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4a23fd0e-a91b-4336-ae62-89d739190fe9
+    m_ActionName: Buzzer/GB
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 355795078}
+        m_TargetAssemblyTypeName: PlayerControler, Assembly-CSharp
+        m_MethodName: BuzzerButton2_Pressed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 12c731a5-4f3e-45d8-827b-57ca4f00ab58
+    m_ActionName: Buzzer/GY
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 42dda016-55c7-415b-8182-efcccc436619
+    m_ActionName: Buzzer/RR
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1898da8f-3315-413c-a5e1-b157bd9f3905
+    m_ActionName: Buzzer/RB
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 585070ec-6a4f-4897-bdf8-dfa188299b5b
+    m_ActionName: Buzzer/RY
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2e1babd7-0451-4a64-8624-6c64e04424b2
+    m_ActionName: Buzzer/BR
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4eedfbff-1722-4767-9a2a-c0cddabd9499
+    m_ActionName: Buzzer/BB
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 09c4f3b5-432f-4675-bfd2-a289aff1c47b
+    m_ActionName: Buzzer/BY
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Buzzer
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &444767503
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,22 +1022,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afebe968b64740d5bbc7bb99f0feeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mIsActive: 0
-  mOscControler: {fileID: 0}
-  player: 4
-  button: 1
-  mActiveMaterial: {fileID: 0}
-  mInactiveMaterial: {fileID: 0}
-  mBar: 0
-  mBeat: 0
-  mRawTick: 0
-  mTempo: 120
-  mAbletonUnit: 0
-  mAbletonMidiTick: 0
-  mMs: 0
-  mCurrentTime: 0
-  loopBar: 4
-  i: 0
 --- !u!114 &444767512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -963,7 +1036,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mMidiEventsLevel:
   - {fileID: 0}
-  gameControler: {fileID: 1979989913}
   Send: {fileID: 548572906}
   Buzzer1: {fileID: 0}
   Buzzer2: {fileID: 0}
@@ -1206,22 +1278,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afebe968b64740d5bbc7bb99f0feeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mIsActive: 0
-  mOscControler: {fileID: 0}
-  player: 4
-  button: 0
-  mActiveMaterial: {fileID: 0}
-  mInactiveMaterial: {fileID: 0}
-  mBar: 0
-  mBeat: 0
-  mRawTick: 0
-  mTempo: 120
-  mAbletonUnit: 0
-  mAbletonMidiTick: 0
-  mMs: 0
-  mCurrentTime: 0
-  loopBar: 4
-  i: 0
 --- !u!1 &548572905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,7 +1337,6 @@ GameObject:
   - component: {fileID: 578477243}
   - component: {fileID: 578477242}
   - component: {fileID: 578477241}
-  - component: {fileID: 578477244}
   - component: {fileID: 578477246}
   - component: {fileID: 578477247}
   m_Layer: 0
@@ -1369,96 +1424,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578477239}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &578477244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 578477239}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 5c87e8c38bf96482c8554236c43b6b0c, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: fa6a105a-99d5-4427-b88c-516458be2d84
-    m_ActionName: Buzzer/YR[/Namtai Buzz/button6]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: BuzzerPressed
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: f1e41982-01e1-4fcc-ae4f-24b7fe55a648
-    m_ActionName: Buzzer/YB[/Namtai Buzz/button10]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 3e4b9fdf-6873-4682-b82e-dca89257ce77
-    m_ActionName: Buzzer/YY[/Namtai Buzz/button7]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 3e9ca2f8-02db-4d4c-a01c-42ebea766ab5
-    m_ActionName: Buzzer/GR[/Namtai Buzz/button16]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 4a23fd0e-a91b-4336-ae62-89d739190fe9
-    m_ActionName: Buzzer/GB[/Namtai Buzz/button20]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 12c731a5-4f3e-45d8-827b-57ca4f00ab58
-    m_ActionName: Buzzer/GY[/Namtai Buzz/button17]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 42dda016-55c7-415b-8182-efcccc436619
-    m_ActionName: Buzzer/RR[/Namtai Buzz/button11]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 1898da8f-3315-413c-a5e1-b157bd9f3905
-    m_ActionName: Buzzer/RB[/Namtai Buzz/button15]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 585070ec-6a4f-4897-bdf8-dfa188299b5b
-    m_ActionName: Buzzer/RY[/Namtai Buzz/button12]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 2e1babd7-0451-4a64-8624-6c64e04424b2
-    m_ActionName: Buzzer/BR[/Namtai Buzz/trigger]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 4eedfbff-1722-4767-9a2a-c0cddabd9499
-    m_ActionName: Buzzer/BB[/Namtai Buzz/button5]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 09c4f3b5-432f-4675-bfd2-a289aff1c47b
-    m_ActionName: Buzzer/BY[/Namtai Buzz/button2]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Buzzer
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!95 &578477246
 Animator:
   serializedVersion: 4
@@ -1799,22 +1764,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afebe968b64740d5bbc7bb99f0feeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mIsActive: 0
-  mOscControler: {fileID: 0}
-  player: 3
-  button: 0
-  mActiveMaterial: {fileID: 0}
-  mInactiveMaterial: {fileID: 0}
-  mBar: 0
-  mBeat: 0
-  mRawTick: 0
-  mTempo: 120
-  mAbletonUnit: 0
-  mAbletonMidiTick: 0
-  mMs: 0
-  mCurrentTime: 0
-  loopBar: 4
-  i: 0
 --- !u!1 &960799356
 GameObject:
   m_ObjectHideFlags: 0
@@ -2243,22 +2192,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afebe968b64740d5bbc7bb99f0feeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mIsActive: 0
-  mOscControler: {fileID: 0}
-  player: 2
-  button: 1
-  mActiveMaterial: {fileID: 0}
-  mInactiveMaterial: {fileID: 0}
-  mBar: 0
-  mBeat: 0
-  mRawTick: 0
-  mTempo: 120
-  mAbletonUnit: 0
-  mAbletonMidiTick: 0
-  mMs: 0
-  mCurrentTime: 0
-  loopBar: 4
-  i: 0
 --- !u!1 &1094453198
 GameObject:
   m_ObjectHideFlags: 0
@@ -2271,7 +2204,6 @@ GameObject:
   - component: {fileID: 1094453202}
   - component: {fileID: 1094453201}
   - component: {fileID: 1094453200}
-  - component: {fileID: 1094453204}
   - component: {fileID: 1094453205}
   - component: {fileID: 1094453206}
   m_Layer: 0
@@ -2359,96 +2291,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094453198}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1094453204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1094453198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 5c87e8c38bf96482c8554236c43b6b0c, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: fa6a105a-99d5-4427-b88c-516458be2d84
-    m_ActionName: Buzzer/YR[/Namtai Buzz/button6]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: f1e41982-01e1-4fcc-ae4f-24b7fe55a648
-    m_ActionName: Buzzer/YB[/Namtai Buzz/button10]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BuzzerActionControler, Assembly-CSharp
-        m_MethodName: BuzzerPressed
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 3e4b9fdf-6873-4682-b82e-dca89257ce77
-    m_ActionName: Buzzer/YY[/Namtai Buzz/button7]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 3e9ca2f8-02db-4d4c-a01c-42ebea766ab5
-    m_ActionName: Buzzer/GR[/Namtai Buzz/button16]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 4a23fd0e-a91b-4336-ae62-89d739190fe9
-    m_ActionName: Buzzer/GB[/Namtai Buzz/button20]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 12c731a5-4f3e-45d8-827b-57ca4f00ab58
-    m_ActionName: Buzzer/GY[/Namtai Buzz/button17]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 42dda016-55c7-415b-8182-efcccc436619
-    m_ActionName: Buzzer/RR[/Namtai Buzz/button11]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 1898da8f-3315-413c-a5e1-b157bd9f3905
-    m_ActionName: Buzzer/RB[/Namtai Buzz/button15]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 585070ec-6a4f-4897-bdf8-dfa188299b5b
-    m_ActionName: Buzzer/RY[/Namtai Buzz/button12]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 2e1babd7-0451-4a64-8624-6c64e04424b2
-    m_ActionName: Buzzer/BR[/Namtai Buzz/trigger]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 4eedfbff-1722-4767-9a2a-c0cddabd9499
-    m_ActionName: Buzzer/BB[/Namtai Buzz/button5]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 09c4f3b5-432f-4675-bfd2-a289aff1c47b
-    m_ActionName: Buzzer/BY[/Namtai Buzz/button2]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Buzzer
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!95 &1094453205
 Animator:
   serializedVersion: 4
@@ -2498,7 +2340,6 @@ GameObject:
   - component: {fileID: 1108620846}
   - component: {fileID: 1108620845}
   - component: {fileID: 1108620847}
-  - component: {fileID: 1108620848}
   - component: {fileID: 1108620849}
   m_Layer: 0
   m_Name: J2_Blue
@@ -2709,34 +2550,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1108620848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1108620840}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1afebe968b64740d5bbc7bb99f0feeb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mIsActive: 0
-  mOscControler: {fileID: 0}
-  player: 2
-  button: 0
-  mActiveMaterial: {fileID: 0}
-  mInactiveMaterial: {fileID: 0}
-  mBar: 0
-  mBeat: 0
-  mRawTick: 0
-  mTempo: 120
-  mAbletonUnit: 0
-  mAbletonMidiTick: 0
-  mMs: 0
-  mCurrentTime: 0
-  loopBar: 4
-  i: 0
 --- !u!114 &1108620849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2751,7 +2564,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mMidiEventsLevel:
   - {fileID: 0}
-  gameControler: {fileID: 1979989913}
   Send: {fileID: 548572906}
   Buzzer1: {fileID: 0}
   Buzzer2: {fileID: 0}
@@ -2810,7 +2622,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mMidiEventsLevel:
   - {fileID: 0}
-  gameControler: {fileID: 1979989913}
   Send: {fileID: 548572906}
   Buzzer1: {fileID: 0}
   Buzzer2: {fileID: 0}
@@ -2958,7 +2769,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mMidiEventsLevel:
   - {fileID: 0}
-  gameControler: {fileID: 1979989913}
   Send: {fileID: 548572906}
   Buzzer1: {fileID: 0}
   Buzzer2: {fileID: 0}
@@ -3084,6 +2894,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2132291535}
+  - component: {fileID: 2132291537}
   - component: {fileID: 2132291536}
   m_Layer: 0
   m_Name: Joueur1Y
@@ -3122,9 +2933,110 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mMidiEventsLevel: []
-  gameControler: {fileID: 1979989913}
   Send: {fileID: 548572906}
   Buzzer1: {fileID: 578477247}
-  Buzzer2: {fileID: 0}
+  Buzzer2: {fileID: 1094453206}
   mIndexPlayer: 1
   tolerance: 5
+--- !u!114 &2132291537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132291534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 5c87e8c38bf96482c8554236c43b6b0c, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fa6a105a-99d5-4427-b88c-516458be2d84
+    m_ActionName: Buzzer/YR[/Namtai Buzz/button6]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2132291536}
+        m_TargetAssemblyTypeName: PlayerControler, Assembly-CSharp
+        m_MethodName: BuzzerButton1_Pressed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f1e41982-01e1-4fcc-ae4f-24b7fe55a648
+    m_ActionName: Buzzer/YB[/Namtai Buzz/button10]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2132291536}
+        m_TargetAssemblyTypeName: PlayerControler, Assembly-CSharp
+        m_MethodName: BuzzerButton2_Pressed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3e4b9fdf-6873-4682-b82e-dca89257ce77
+    m_ActionName: Buzzer/YY[/Namtai Buzz/button7]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3e9ca2f8-02db-4d4c-a01c-42ebea766ab5
+    m_ActionName: Buzzer/GR[/Namtai Buzz/button16]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4a23fd0e-a91b-4336-ae62-89d739190fe9
+    m_ActionName: Buzzer/GB[/Namtai Buzz/button20]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 12c731a5-4f3e-45d8-827b-57ca4f00ab58
+    m_ActionName: Buzzer/GY[/Namtai Buzz/button17]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 42dda016-55c7-415b-8182-efcccc436619
+    m_ActionName: Buzzer/RR[/Namtai Buzz/button11]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1898da8f-3315-413c-a5e1-b157bd9f3905
+    m_ActionName: Buzzer/RB[/Namtai Buzz/button15]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 585070ec-6a4f-4897-bdf8-dfa188299b5b
+    m_ActionName: Buzzer/RY[/Namtai Buzz/button12]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2e1babd7-0451-4a64-8624-6c64e04424b2
+    m_ActionName: Buzzer/BR[/Namtai Buzz/trigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4eedfbff-1722-4767-9a2a-c0cddabd9499
+    m_ActionName: Buzzer/BB[/Namtai Buzz/button5]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 09c4f3b5-432f-4675-bfd2-a289aff1c47b
+    m_ActionName: Buzzer/BY[/Namtai Buzz/button2]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Buzzer
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
