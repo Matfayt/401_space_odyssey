@@ -6,11 +6,12 @@ using UnityEngine.InputSystem;
 public class PlayerControler : MonoBehaviour
 {
     public TextAsset[] mMidiEventsLevel;
+    public GAME gameControler;
+    public SendOSC Send;
     List<Target> mTargetsList = new List<Target>();
     float mCurrentLoopTime;
     int indexLevel;
-    public GAME gameControler;
-    public SendOSC Send;
+    
     public int mIndexPlayer;
     int v =0;
     int nbTarget;
@@ -89,6 +90,7 @@ public class PlayerControler : MonoBehaviour
         mIsActive =! mIsActive;
         if (mIsActive)
         {
+
             Send.SendMessage(mIndexPlayer, 1);
         }
 
