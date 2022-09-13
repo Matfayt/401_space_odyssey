@@ -43,6 +43,8 @@ public class GAME : MonoBehaviour
        
     foreach(PlayerControler p in mPlayers)
         {
+          mCurrentLoopTime ==  mReceive.OnReceiveCurrentTime();
+
            // mReceive.OnReceiveCurrentTime(mCurrentLoopTime);
             p.setCurrentTime(mCurrentLoopTime);
         }
