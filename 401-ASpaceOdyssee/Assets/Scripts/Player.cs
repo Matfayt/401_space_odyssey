@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public int player, button;
     public Material mActiveMaterial;
     public Material mInactiveMaterial;
-    int mBar, mBeat, mRawTick, mTempo = 120, mAbletonUnit, mAbletonMidiTick;
+    int mBar, mBeat, mRawTick, mTempo = 120, mAbletonUnit, mAbletonMidiTick, mMs;
     int loopBar = 4;
     public int i=0;
     public ArrayList sequence = new ArrayList();
@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
         mOscControler.SetAddressHandler("/Beat", OnReceiveBeat);
         mOscControler.SetAddressHandler("/AbletonUnit", OnReceiveAbletonUnit);
         mOscControler.SetAddressHandler("/AbletonMidiTick", OnReceiveAbletonMidiTick);
+        mOscControler.SetAddressHandler("/Ms", OnReceiveMs);
         
 
     }
@@ -54,6 +55,12 @@ public class Player : MonoBehaviour
         mAbletonMidiTick = message.GetInt(0);
         Debug.Log("AbletonMidiTick = " + mAbletonMidiTick);
     }
+    void OnReceiveMs(OscMessage message)
+    {
+        mMs = message.GetInt(0);
+        Debug.Log("Ms = " + mMs);
+    }
+
 
     
 
