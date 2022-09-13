@@ -62,6 +62,7 @@ public class Player : MonoBehaviour
     }
 
 
+
     
 
     public void BuzzerPressed(InputAction.CallbackContext context)
@@ -84,13 +85,10 @@ public class Player : MonoBehaviour
                 Task.Delay(2000);
                 
                 int mTime = (mBar % loopBar) / (mTempo / 60);
+
                 int[] temp = new int[] { mTime, player*10+button} ;
 
-
                 sequence.Add(temp);
-
-                Debug.Log("LoopTime = " + mTime);
-                Debug.Log("Sequence =" + sequence);
 
                 
 
