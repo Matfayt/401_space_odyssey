@@ -1144,6 +1144,7 @@ GameObject:
   - component: {fileID: 578477244}
   - component: {fileID: 578477246}
   - component: {fileID: 578477248}
+  - component: {fileID: 578477249}
   m_Layer: 0
   m_Name: J1_Blue
   m_TagString: Untagged
@@ -1346,7 +1347,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578477239}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1afebe968b64740d5bbc7bb99f0feeb8, type: 3}
   m_Name: 
@@ -1357,6 +1358,21 @@ MonoBehaviour:
   mActiveMaterial: {fileID: 2100000, guid: 13b654290fe2441a8a96c9151bf22a4b, type: 2}
   mInactiveMaterial: {fileID: 2100000, guid: 05439923f001c4449972d8370b8e76fd, type: 2}
   i: 0
+--- !u!114 &578477249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578477239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038217815e9b743b4be1b4944bacadd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mMidiEventsLevel: []
+  gameControler: {fileID: 0}
+  mIndexPLayer: 0
 --- !u!1001 &719040560
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2578,7 +2594,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1108620840}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1afebe968b64740d5bbc7bb99f0feeb8, type: 3}
   m_Name: 

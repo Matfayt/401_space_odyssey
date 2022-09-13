@@ -9,9 +9,11 @@ public class PlayerControler : MonoBehaviour
     List<Target> mTargetsList = new List<Target>();
     float mCurrentLoopTime;
     public GAME gameControler;
-    public int mIndexPLayer;
+    public SendOSC Send;
+    public int mIndexPlayer;
     int v =0;
     int nbTarget;
+    bool mIsActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -50,8 +52,16 @@ public class PlayerControler : MonoBehaviour
             if (IsActionValid(0))
             {
                 v ++; 
-                gameControler.CheckErrorByPlayer(mIndexPLayer);
+                gameControler.CheckErrorByPlayer(mIndexPlayer);
+
             }
+
+        mIsActive =! mIsActive;
+        if (mIsActive)
+        {
+            Send.SendMessage(mIndexPlayer, 0);
+        }
+            
         }
     }
 
@@ -60,7 +70,7 @@ public class PlayerControler : MonoBehaviour
         
         if(v == nbTarget)
         {
-            gameControler.CheckErrorByPlayer(mIndexPLayer);
+            gameControler.CheckErrorByPlayer(mIndexPlayer);
         }
     }
 
@@ -72,8 +82,14 @@ public class PlayerControler : MonoBehaviour
             if (IsActionValid(0))
             {
                 v++;
-                gameControler.CheckErrorByPlayer(mIndexPLayer);
+                gameControler.CheckErrorByPlayer(mIndexPlayer);
             }
+
+        mIsActive =! mIsActive;
+        if (mIsActive)
+        {
+            Send.SendMessage(mIndexPlayer, 1);
+        }
 
         }
     }

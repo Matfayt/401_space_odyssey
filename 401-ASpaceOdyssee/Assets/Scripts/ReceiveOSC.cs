@@ -1,24 +1,16 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Threading.Tasks;
 
-public class Player : MonoBehaviour
+public class ReceiveOSC : MonoBehaviour
 {
-    bool mIsActive = false;
     public OSC mOscControler;
     public int player, button;
-    public Material mActiveMaterial;
-    public Material mInactiveMaterial;
-    int mBar, mBeat, mRawTick, mTempo = 120, mAbletonUnit, mAbletonMidiTick, mMs, mCurrentTime;
-    int loopBar = 4;
     public int i=0;
-    public ArrayList sequence = new ArrayList();
-
-
-    // Transport Receive
-    private void Start()
+    public int mBar, mBeat, mRawTick, mTempo = 120, mAbletonUnit, mAbletonMidiTick, mMs, mCurrentTime;
+    // Start is called before the first frame update
+    void Start()
     {
         mOscControler.SetAddressHandler("/Bar", OnReceiveBar);
         mOscControler.SetAddressHandler("/Tempo", OnReceiveTempo);
@@ -27,10 +19,13 @@ public class Player : MonoBehaviour
         mOscControler.SetAddressHandler("/AbletonMidiTick", OnReceiveAbletonMidiTick);
         mOscControler.SetAddressHandler("/Ms", OnReceiveMs);
         mOscControler.SetAddressHandler("/CurrentTime", OnReceiveCurrentTime);
-        
-
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
     void OnReceiveBar(OscMessage message)
     {
         mBar = message.GetInt(0);
@@ -65,47 +60,5 @@ public class Player : MonoBehaviour
     {
         mCurrentTime = message.GetInt(0);
         Debug.Log("CurrentTime = " + mCurrentTime);
-    }
-
-
-
-    
-
-    public void BuzzerPressed(InputAction.CallbackContext context)
-    {
-        
-
-        if (context.started)
-        {
-            mIsActive = !mIsActive;
-            if (mIsActive)
-            {
-                GetComponent<MeshRenderer>().material = mActiveMaterial;
-
-                OscMessage message = new OscMessage();
-                message.address = "/Event";
-                message.values.Add(player + (i*6));
-                message.values.Add(button);
-                mOscControler.Send(message);
-
-                Task.Delay(2000);
-                
-                int mTime = (mBar % loopBar) / (mTempo / 60);
-
-                int[] temp = new int[] { mTime, player*10+button} ;
-
-                sequence.Add(temp);
-
-                
-
-            }
-            else
-            {
-                GetComponent<MeshRenderer>().material = mInactiveMaterial;
-            }
-
-        }
-        
-
     }
 }
