@@ -52,13 +52,12 @@ public class GAME : MonoBehaviour
 
     void Update()
     {
-        mCurrentLoopTime = mReceive.SendCurrentTime();
-        Debug.Log("GAME_CurrentLoopTim" + mCurrentLoopTime);
+        //mCurrentLoopTime = mReceive.SendCurrentTime();
+
+        //Debug.Log("GAME_CurrentLoopTim" + mCurrentLoopTime);
        
-    foreach(PlayerControler p in mPlayers)
+        foreach(PlayerControler p in mPlayers)
         {
-            //char what = "mCurrentTime";
-           //mReceive.SendGlobal(what);
             //p.setCurrentTime(mCurrentLoopTime);
         }
 
