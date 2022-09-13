@@ -7,11 +7,10 @@ public class BuzzerActionControler : MonoBehaviour
     public Material mInactiveMaterial;
     bool mIsActive = false;
 
-    public void BuzzerPressed(InputAction.CallbackContext context)
+    public void BuzzerPressed(bool a)
     {
-        if (context.started)
-        {
-            mIsActive = !mIsActive;
+        
+            mIsActive = a;
             if (mIsActive)
             {
                 GetComponent<MeshRenderer>().material = mActiveMaterial;
@@ -20,6 +19,8 @@ public class BuzzerActionControler : MonoBehaviour
             {
                 GetComponent<MeshRenderer>().material = mInactiveMaterial;
             }
-        }
+        
     }
+
 }
+

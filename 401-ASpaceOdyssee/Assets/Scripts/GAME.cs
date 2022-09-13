@@ -25,20 +25,18 @@ public class GAME : MonoBehaviour
 
     void Start()
     {
-        
-       // mOscChannel.SetAddressHandler("/CurrentTime", OnReceiveCurrentTime);
         foreach(PlayerControler p in mPlayers)
         {
-            p.getCurrentLevel(indexLevel);
+            p.setCurrentLevel(indexLevel);
         }
     }
 
-   /* void OnReceiveCurrentTime(OscMessage message)
+    public void ReceiveCurrentTime(float timing)
     {
-        mCurrentLoopTime = message.GetFloat(0);
-        Debug.Log("Current Time = " + mCurrentLoopTime);
+        mCurrentLoopTime = timing;
         
-    }*/
+    }
+
 
     void Update()
     {
@@ -54,17 +52,5 @@ public class GAME : MonoBehaviour
 
     }
 
- /*   void readTextFile(string file_path)
-    {
-        StreamReader inp_stm = new StreamReader(file_path);
-
-        while (!inp_stm.EndOfStream)
-        {
-            string inp_ln = inp_stm.ReadLine();
-            // Do Something with the input. 
-        }
-
-        inp_stm.Close();
-    }*/
 }
 

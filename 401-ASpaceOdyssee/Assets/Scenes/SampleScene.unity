@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17316318, g: 0.16457182, b: 0.29665613, a: 1}
+  m_IndirectSpecularColor: {r: 0.1732206, g: 0.1645535, b: 0.29666728, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -440,7 +440,10 @@ MonoBehaviour:
   - {fileID: 0}
   gameControler: {fileID: 1979989913}
   Send: {fileID: 548572906}
+  Buzzer1: {fileID: 0}
+  Buzzer2: {fileID: 0}
   mIndexPlayer: 3
+  tolerance: 5
 --- !u!1 &86631343
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,7 +691,10 @@ MonoBehaviour:
   - {fileID: 0}
   gameControler: {fileID: 1979989913}
   Send: {fileID: 548572906}
+  Buzzer1: {fileID: 0}
+  Buzzer2: {fileID: 0}
   mIndexPlayer: 2
+  tolerance: 5
 --- !u!1 &444767503
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,7 +965,10 @@ MonoBehaviour:
   - {fileID: 0}
   gameControler: {fileID: 1979989913}
   Send: {fileID: 548572906}
+  Buzzer1: {fileID: 0}
+  Buzzer2: {fileID: 0}
   mIndexPlayer: 4
+  tolerance: 5
 --- !u!1 &548560394
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,7 +1283,7 @@ GameObject:
   - component: {fileID: 578477241}
   - component: {fileID: 578477244}
   - component: {fileID: 578477246}
-  - component: {fileID: 578477248}
+  - component: {fileID: 578477247}
   m_Layer: 0
   m_Name: J1_Blue
   m_TagString: Untagged
@@ -1391,7 +1400,7 @@ MonoBehaviour:
     m_ActionName: Buzzer/YR[/Namtai Buzz/button6]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 578477248}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
         m_MethodName: BuzzerPressed
         m_Mode: 0
@@ -1470,34 +1479,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &578477248
+--- !u!114 &578477247
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578477239}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1afebe968b64740d5bbc7bb99f0feeb8, type: 3}
+  m_Script: {fileID: 11500000, guid: 73487b841171f453698975596b834727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mIsActive: 0
-  mOscControler: {fileID: 57235077}
-  player: 1
-  button: 0
   mActiveMaterial: {fileID: 2100000, guid: 13b654290fe2441a8a96c9151bf22a4b, type: 2}
-  mInactiveMaterial: {fileID: 2100000, guid: 05439923f001c4449972d8370b8e76fd, type: 2}
-  mBar: 0
-  mBeat: 0
-  mRawTick: 0
-  mTempo: 120
-  mAbletonUnit: 0
-  mAbletonMidiTick: 0
-  mMs: 0
-  mCurrentTime: 0
-  loopBar: 4
-  i: 0
+  mInactiveMaterial: {fileID: 2100000, guid: aa5242c9068c74818a9828154d0dcfed, type: 2}
 --- !u!1001 &719040560
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2276,11 +2271,9 @@ GameObject:
   - component: {fileID: 1094453202}
   - component: {fileID: 1094453201}
   - component: {fileID: 1094453200}
-  - component: {fileID: 1094453203}
   - component: {fileID: 1094453204}
   - component: {fileID: 1094453205}
   - component: {fileID: 1094453206}
-  - component: {fileID: 1094453207}
   m_Layer: 0
   m_Name: J1_Yellow
   m_TagString: Untagged
@@ -2366,20 +2359,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094453198}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1094453203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1094453198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73487b841171f453698975596b834727, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mActiveMaterial: {fileID: 2100000, guid: 05439923f001c4449972d8370b8e76fd, type: 2}
-  mInactiveMaterial: {fileID: 2100000, guid: aa5242c9068c74818a9828154d0dcfed, type: 2}
 --- !u!114 &1094453204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2415,7 +2394,7 @@ MonoBehaviour:
     m_ActionName: Buzzer/YB[/Namtai Buzz/button10]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1094453203}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BuzzerActionControler, Assembly-CSharp
         m_MethodName: BuzzerPressed
         m_Mode: 0
@@ -2497,43 +2476,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094453198}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1afebe968b64740d5bbc7bb99f0feeb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mIsActive: 0
-  mOscControler: {fileID: 0}
-  player: 1
-  button: 1
-  mActiveMaterial: {fileID: 0}
-  mInactiveMaterial: {fileID: 0}
-  mBar: 0
-  mBeat: 0
-  mRawTick: 0
-  mTempo: 120
-  mAbletonUnit: 0
-  mAbletonMidiTick: 0
-  mMs: 0
-  mCurrentTime: 0
-  loopBar: 4
-  i: 0
---- !u!114 &1094453207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1094453198}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 038217815e9b743b4be1b4944bacadd5, type: 3}
+  m_Script: {fileID: 11500000, guid: 73487b841171f453698975596b834727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mMidiEventsLevel: []
-  gameControler: {fileID: 1979989913}
-  Send: {fileID: 548572906}
-  mIndexPlayer: 1
+  mActiveMaterial: {fileID: 2100000, guid: 05439923f001c4449972d8370b8e76fd, type: 2}
+  mInactiveMaterial: {fileID: 2100000, guid: aa5242c9068c74818a9828154d0dcfed, type: 2}
 --- !u!1 &1108620840
 GameObject:
   m_ObjectHideFlags: 0
@@ -2804,7 +2753,10 @@ MonoBehaviour:
   - {fileID: 0}
   gameControler: {fileID: 1979989913}
   Send: {fileID: 548572906}
+  Buzzer1: {fileID: 0}
+  Buzzer2: {fileID: 0}
   mIndexPlayer: 2
+  tolerance: 5
 --- !u!4 &1310451147 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 419338, guid: 8c8a8f77e8699403ab6c0d4b8fe24c16, type: 3}
@@ -2860,7 +2812,10 @@ MonoBehaviour:
   - {fileID: 0}
   gameControler: {fileID: 1979989913}
   Send: {fileID: 548572906}
+  Buzzer1: {fileID: 0}
+  Buzzer2: {fileID: 0}
   mIndexPlayer: 4
+  tolerance: 5
 --- !u!1 &1864957192
 GameObject:
   m_ObjectHideFlags: 0
@@ -3005,7 +2960,10 @@ MonoBehaviour:
   - {fileID: 0}
   gameControler: {fileID: 1979989913}
   Send: {fileID: 548572906}
+  Buzzer1: {fileID: 0}
+  Buzzer2: {fileID: 0}
   mIndexPlayer: 3
+  tolerance: 5
 --- !u!1 &1948444116
 GameObject:
   m_ObjectHideFlags: 0
@@ -3163,8 +3121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 038217815e9b743b4be1b4944bacadd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mMidiEventsLevel:
-  - {fileID: 0}
+  mMidiEventsLevel: []
   gameControler: {fileID: 1979989913}
   Send: {fileID: 548572906}
+  Buzzer1: {fileID: 578477247}
+  Buzzer2: {fileID: 0}
   mIndexPlayer: 1
+  tolerance: 5
