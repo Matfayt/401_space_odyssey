@@ -8,6 +8,7 @@ public class PlayerControler : MonoBehaviour
     public TextAsset[] mMidiEventsLevel;
     List<Target> mTargetsList = new List<Target>();
     float mCurrentLoopTime;
+    int indexLevel;
     public GAME gameControler;
     public SendOSC Send;
     public int mIndexPlayer;
@@ -143,5 +144,9 @@ public class PlayerControler : MonoBehaviour
         mCurrentLoopTime = time;
     }
 
+    public void getCurrentLevel(int level)
+    {
+        indexLevel = level;
+    }
 
 }

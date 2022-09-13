@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class GAME : MonoBehaviour
 
@@ -26,7 +25,10 @@ public class GAME : MonoBehaviour
     {
         
         mOscChannel.SetAddressHandler("/CurrentTime", OnReceiveCurrentTime);
-
+        foreach(PlayerControler p in mPlayers)
+        {
+            p.getCurrentLevel(indexLevel);
+        }
     }
 
     void OnReceiveCurrentTime(OscMessage message)
