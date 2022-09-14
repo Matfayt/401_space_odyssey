@@ -62,20 +62,14 @@ public class PlayerControler : MonoBehaviour
             {
 
                 Buzzer1.BuzzerPressed(true);
-<<<<<<< Updated upstream
                 Send.SendMessageEvent(mIndexPlayer, 0, indexLevel);
-                nbTouch++;
-=======
-                Send.SendMessage(mIndexPlayer, 0);
-                v += 1;
+                v ++;
                 Debug.Log("Player" + mIndexPlayer + "_essais = " + v);
                 bool check;
                 if (check = IsActionValid(0))
                 {
                     nbTouch++;
                 }
-                
->>>>>>> Stashed changes
                 mIsActive = !mIsActive;
                 
             }

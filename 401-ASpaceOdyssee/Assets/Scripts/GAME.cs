@@ -14,21 +14,21 @@ public class GAME : MonoBehaviour
     //float mLoopLenghtTime = 56.443f;// lenght of the loop
     public int indexLevel;
     public int indexSBlevel;
-    int checkTot = 0;
+    
 
 
     public void CheckErrorByPlayer()
     {
+        int checkTot = 0;
         
         foreach(PlayerControler p in mPlayers)
         {
-            if (p.CheckPlayer() == true)
-
-                checkTot++;
-
-            
-
+                if (p.CheckPlayer() == true)
+            {
+                checkTot ++;
+            }
         }
+        
         Debug.Log("GAME_checkTot =" + checkTot);
     }
 
@@ -50,7 +50,7 @@ public class GAME : MonoBehaviour
             p.InitializeLevel(indexLevel);
         }
 
-        checkTot = 0;
+        
     }
 
 
