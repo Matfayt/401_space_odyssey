@@ -13,15 +13,12 @@ public class BuzzerActionControler : MonoBehaviour
     {
         GetComponent<MeshRenderer>().material = mActiveMaterial;
         yield return new WaitForSeconds(wait);
-      
-    }
-
-    IEnumerator InactiveAndWait()
-    {
         GetComponent<MeshRenderer>().material = mInactiveMaterial;
-        yield return new WaitForSeconds(wait);
+
 
     }
+
+    
 
     public void BuzzerPressed(bool a)
     {
@@ -33,7 +30,7 @@ public class BuzzerActionControler : MonoBehaviour
             }
             else
             {
-            StartCoroutine(InactiveAndWait());
+            GetComponent<MeshRenderer>().material = mInactiveMaterial;
             }
         
     }
