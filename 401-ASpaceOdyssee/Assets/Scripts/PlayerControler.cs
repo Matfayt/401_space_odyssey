@@ -64,7 +64,7 @@ public class PlayerControler : MonoBehaviour
         if (mIsActive)
             {
                 Buzzer1.BuzzerPressed(true);
-                Send.SendMessage(mIndexPlayer, 0);
+                Send.SendMessageEvent(mIndexPlayer, 0, indexLevel);
                 nbTouch++;
                 mIsActive = !mIsActive;
                 
@@ -90,7 +90,7 @@ public class PlayerControler : MonoBehaviour
             if (mIsActive)
             {
                 Buzzer2.BuzzerPressed(true);
-                Send.SendMessage(mIndexPlayer, 1);
+                Send.SendMessageEvent(mIndexPlayer, 1, indexLevel);
                 nbTouch++;
                 mIsActive = !mIsActive;
                 

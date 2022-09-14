@@ -13,11 +13,11 @@ public class ReceiveOSC : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mOscControler.SetAddressHandler("/Bar", OnReceiveBar);
-        mOscControler.SetAddressHandler("/Tempo", OnReceiveTempo);
+        //mOscControler.SetAddressHandler("/Bar", OnReceiveBar);
+        //mOscControler.SetAddressHandler("/Tempo", OnReceiveTempo);
         mOscControler.SetAddressHandler("/Beat", OnReceiveBeat);
-        mOscControler.SetAddressHandler("/AbletonUnit", OnReceiveAbletonUnit);
-        mOscControler.SetAddressHandler("/AbletonMidiTick", OnReceiveAbletonMidiTick);
+        //mOscControler.SetAddressHandler("/AbletonUnit", OnReceiveAbletonUnit);
+        //mOscControler.SetAddressHandler("/AbletonMidiTick", OnReceiveAbletonMidiTick);
         mOscControler.SetAddressHandler("/Ms", OnReceiveMs);
         mOscControler.SetAddressHandler("/CurrentTime", OnReceiveCurrentTime);
     }
@@ -27,7 +27,7 @@ public class ReceiveOSC : MonoBehaviour
     {
         
     }
-    void OnReceiveBar(OscMessage message)
+    /*void OnReceiveBar(OscMessage message)
     {
         mBar = message.GetInt(0);
         Debug.Log("Bar = " + mBar);
@@ -36,13 +36,17 @@ public class ReceiveOSC : MonoBehaviour
     {
         mTempo = message.GetInt(0);
         Debug.Log("Tempo = " + mTempo);
-    }
+    }*/
     void OnReceiveBeat(OscMessage message)
     {
         mBeat = message.GetInt(0);
         Debug.Log("Beat = " + mBeat);
     }
-    void OnReceiveAbletonUnit(OscMessage message)
+    public float GetBeat()
+    {
+        return mBeat;
+    }
+    /*void OnReceiveAbletonUnit(OscMessage message)
     {
         mAbletonUnit = message.GetInt(0);
         Debug.Log("AbletonUnit = " + mAbletonUnit);
@@ -51,11 +55,15 @@ public class ReceiveOSC : MonoBehaviour
     {
         mAbletonMidiTick = message.GetInt(0);
         Debug.Log("AbletonMidiTick = " + mAbletonMidiTick);
-    }
+    }*/
     void OnReceiveMs(OscMessage message)
     {
         mMs = message.GetInt(0);
         Debug.Log("Ms = " + mMs);
+    }
+    public float GetMs()
+    {
+        return mMs;
     }
     void OnReceiveCurrentTime(OscMessage message)
     {
