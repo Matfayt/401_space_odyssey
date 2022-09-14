@@ -12,8 +12,8 @@ public class GAME : MonoBehaviour
     public OSC mOscChannel;
     public float mCurrentLoopTime;
     //float mLoopLenghtTime = 56.443f;// lenght of the loop
-    int indexLevel;
-    int indexSBlevel;
+    public int indexLevel;
+    public int indexSBlevel;
 
 
     public void CheckErrorByPlayer(int indexPLayer)
@@ -62,7 +62,7 @@ public class GAME : MonoBehaviour
             p.setCurrentTime(mCurrentLoopTime);
         }
 
-        while (indexLevel < 2)
+       /* while (indexLevel < 2)
         {
             while(indexSBlevel <= 4)
             {
@@ -72,7 +72,7 @@ public class GAME : MonoBehaviour
                     p.InitializeLevel(indexLevel);
                 }
             }
-        }
+        }*/
 
     }
 
