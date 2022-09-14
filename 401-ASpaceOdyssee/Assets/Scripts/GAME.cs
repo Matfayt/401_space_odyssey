@@ -22,7 +22,9 @@ public class GAME : MonoBehaviour
         
         foreach(PlayerControler p in mPlayers)
         {
-            checkTot += p.CheckPlayer();
+            if (p.CheckPlayer() == true)
+
+                checkTot++;
 
             
 

@@ -119,13 +119,13 @@ public class PlayerControler : MonoBehaviour
         }
     }
 
-    public int CheckPlayer()
+    public bool CheckPlayer()
     {
-       int checkPlayer = 0;
+       bool checkPlayer = false;
 
        if (/*nbTouch == nbTarget &*/ v == nbTarget)
         {
-            checkPlayer += 1;
+            checkPlayer = true;
         }
         
         return checkPlayer;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17316318, g: 0.16457182, b: 0.29665613, a: 1}
+  m_IndirectSpecularColor: {r: 0.1732206, g: 0.1645535, b: 0.29666728, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -283,6 +283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mActiveMaterial: {fileID: 2100000, guid: 05439923f001c4449972d8370b8e76fd, type: 2}
   mInactiveMaterial: {fileID: 2100000, guid: aa5242c9068c74818a9828154d0dcfed, type: 2}
+  wait: 0.5
 --- !u!95 &79243611
 Animator:
   serializedVersion: 4
@@ -532,7 +533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mMidiEventsLevel:
-  - {fileID: 0}
+  - {fileID: 4900000, guid: aea3087c08ad547eb80dc2d37e3633be, type: 3}
   Send: {fileID: 548572906}
   Buzzer1: {fileID: 1108620846}
   Buzzer2: {fileID: 1066306377}
@@ -753,6 +754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mActiveMaterial: {fileID: 2100000, guid: 05439923f001c4449972d8370b8e76fd, type: 2}
   mInactiveMaterial: {fileID: 2100000, guid: aa5242c9068c74818a9828154d0dcfed, type: 2}
+  wait: 0.5
 --- !u!95 &444767510
 Animator:
   serializedVersion: 4
@@ -886,6 +888,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mActiveMaterial: {fileID: 2100000, guid: 13b654290fe2441a8a96c9151bf22a4b, type: 2}
   mInactiveMaterial: {fileID: 2100000, guid: aa5242c9068c74818a9828154d0dcfed, type: 2}
+  wait: 0.5
 --- !u!95 &548560401
 Animator:
   serializedVersion: 4
@@ -1086,6 +1089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mActiveMaterial: {fileID: 2100000, guid: 13b654290fe2441a8a96c9151bf22a4b, type: 2}
   mInactiveMaterial: {fileID: 2100000, guid: aa5242c9068c74818a9828154d0dcfed, type: 2}
+  wait: 0.5
 --- !u!1 &705711927
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,6 +1328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mActiveMaterial: {fileID: 2100000, guid: 13b654290fe2441a8a96c9151bf22a4b, type: 2}
   mInactiveMaterial: {fileID: 2100000, guid: aa5242c9068c74818a9828154d0dcfed, type: 2}
+  wait: 0.5
 --- !u!95 &919168462
 Animator:
   serializedVersion: 4
@@ -1648,6 +1653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mActiveMaterial: {fileID: 2100000, guid: 05439923f001c4449972d8370b8e76fd, type: 2}
   mInactiveMaterial: {fileID: 2100000, guid: aa5242c9068c74818a9828154d0dcfed, type: 2}
+  wait: 0.5
 --- !u!95 &1066306378
 Animator:
   serializedVersion: 4
@@ -1801,6 +1807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mActiveMaterial: {fileID: 2100000, guid: 05439923f001c4449972d8370b8e76fd, type: 2}
   mInactiveMaterial: {fileID: 2100000, guid: aa5242c9068c74818a9828154d0dcfed, type: 2}
+  wait: 0.5
 --- !u!1 &1108620840
 GameObject:
   m_ObjectHideFlags: 0
@@ -1914,6 +1921,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mActiveMaterial: {fileID: 2100000, guid: 13b654290fe2441a8a96c9151bf22a4b, type: 2}
   mInactiveMaterial: {fileID: 2100000, guid: aa5242c9068c74818a9828154d0dcfed, type: 2}
+  wait: 0.5
 --- !u!95 &1108620847
 Animator:
   serializedVersion: 4
@@ -1987,7 +1995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mMidiEventsLevel:
-  - {fileID: 0}
+  - {fileID: 4900000, guid: ebc35963d16fa4fee9b57b68ac63b4b4, type: 3}
   Send: {fileID: 548572906}
   Buzzer1: {fileID: 548560400}
   Buzzer2: {fileID: 444767509}
@@ -2237,7 +2245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mMidiEventsLevel:
-  - {fileID: 0}
+  - {fileID: 4900000, guid: e67ea67c0945840c3ac3a97cd1574882, type: 3}
   Send: {fileID: 548572906}
   Buzzer1: {fileID: 919168461}
   Buzzer2: {fileID: 79243610}
@@ -2451,11 +2459,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84cbe73659f9d4fb59149ed485c74e95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mPlayers: []
+  mPlayers:
+  - {fileID: 2132291536}
+  - {fileID: 355795078}
+  - {fileID: 1933184168}
+  - {fileID: 1651910057}
   mSend: {fileID: 548572906}
   mReceive: {fileID: 705711928}
   mOscChannel: {fileID: 57235077}
   mCurrentLoopTime: 0
+  indexLevel: 0
+  indexSBlevel: 0
 --- !u!1 &2132291534
 GameObject:
   m_ObjectHideFlags: 0
@@ -2503,7 +2517,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 038217815e9b743b4be1b4944bacadd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mMidiEventsLevel: []
+  mMidiEventsLevel:
+  - {fileID: 4900000, guid: 3f778994dafc04255827273fa4fda920, type: 3}
   Send: {fileID: 548572906}
   Buzzer1: {fileID: 578477247}
   Buzzer2: {fileID: 1094453206}
