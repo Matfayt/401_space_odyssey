@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1732206, g: 0.1645535, b: 0.29666728, a: 1}
+  m_IndirectSpecularColor: {r: 0.17316318, g: 0.16457182, b: 0.29665613, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1989,8 +1989,8 @@ MonoBehaviour:
   mMidiEventsLevel:
   - {fileID: 0}
   Send: {fileID: 548572906}
-  Buzzer1: {fileID: 0}
-  Buzzer2: {fileID: 0}
+  Buzzer1: {fileID: 548560400}
+  Buzzer2: {fileID: 444767509}
   mIndexPlayer: 4
   tolerance: 5
 --- !u!114 &1651910058

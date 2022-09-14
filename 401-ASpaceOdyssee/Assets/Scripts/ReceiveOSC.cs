@@ -63,7 +63,7 @@ public class ReceiveOSC : MonoBehaviour
         Debug.Log("CurrentTime = " + mCurrentTime);
     }
 
-    public float SendCurrentTime()
+    public float GetCurrentTime()
     {
         return mCurrentTime;
     }
