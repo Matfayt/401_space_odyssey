@@ -39,8 +39,8 @@ public class SendOSC : MonoBehaviour
     {
         OscMessage message = new OscMessage();
         message.address = "/Loop";
-        message.values.Add(i + 6);
-        message.values.Add(j - 1);
+        message.values.Add((i*6)+5);
+        message.values.Add(j);
         mOscControler.Send(message);
     }
 
