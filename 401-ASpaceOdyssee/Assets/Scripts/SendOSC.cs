@@ -11,6 +11,7 @@ public class SendOSC : MonoBehaviour
     public PlayerControler[] mPlayers;
     
 
+//Fires clips when button is pressed (wich button wich player and +i to locate a track when level up)
     public void SendMessageEvent(int player, int button, int i)
     {
 
@@ -21,10 +22,9 @@ public class SendOSC : MonoBehaviour
         message.values.Add(track);
         message.values.Add(button);
         mOscControler.Send(message);
-        
-
     }
 
+//Sends message to fire target sounds 
     public void SendMessageExemple(int i, int j)
     {
         OscMessage message = new OscMessage();
@@ -32,9 +32,9 @@ public class SendOSC : MonoBehaviour
         message.values.Add(i);
         message.values.Add(j);
         mOscControler.Send(message);
-
     }
 
+//Sends message to fire loop sounds
     public void SendMessageLoop(int i, int j)
     {
         OscMessage message = new OscMessage();
@@ -44,6 +44,7 @@ public class SendOSC : MonoBehaviour
         mOscControler.Send(message);
     }
 
+//Stops a clip (x = track & y = clip)
     public void SendMessageStop(int x, int y)
     {
         OscMessage message = new OscMessage();
@@ -53,11 +54,21 @@ public class SendOSC : MonoBehaviour
         mOscControler.Send(message);
     }
 
+//Stop all clips from all tracks
     public void SendMessageStopAll()
     {
         OscMessage message = new OscMessage();
         message.address = "/StopAll";
         message.values.Add(0);
+        mOscControler.Send(message);
+    }
+
+//Start all background sounds for all the game (starts ableton project and TRANSPORT)
+    public void SendMessageStartGame()
+    {
+        OscMessage message = new OscMessage();
+        message.address = "/StartGame";
+        message.values.Add(1);
         mOscControler.Send(message);
     }
 }
