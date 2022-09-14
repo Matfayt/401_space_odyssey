@@ -14,42 +14,47 @@ public class GAME : MonoBehaviour
     //float mLoopLenghtTime = 56.443f;// lenght of the loop
     public int indexLevel;
     public int indexSBlevel;
+    int checkTot = 0;
 
 
-    public void CheckErrorByPlayer(int indexPLayer)
-    {
-        int checkTot = 0;
-        foreach(PlayerControler p in mPlayers)
-        {
-            checkTot += p.CheckPlayer(indexPLayer);
-
-        }
-        if(checkTot == 4)
-        {
-            indexLevel++;
-
-        }
-        else
-        {
-            
-        }
-    }
-
-    void Start()
+    public void CheckErrorByPlayer()
     {
         
+        foreach(PlayerControler p in mPlayers)
+        {
+            checkTot += p.CheckPlayer();
+
+            
+
+        }
+        Debug.Log("GAME_checkTot =" + checkTot);
     }
+
 
     public void ReceiveCurrentTime(float timing)
     {
-       // mReceive.OnReceiveCurrentTime(timing);
+        // mReceive.OnReceiveCurrentTime(timing);
         mCurrentLoopTime = timing;
-        
+
     }
 
 
-    void Update()
+
+
+    void Start()
     {
+        foreach (PlayerControler p in mPlayers)
+        {
+            p.InitializeLevel(indexLevel);
+        }
+
+        checkTot = 0;
+    }
+
+
+
+    void Update()
+    {   
         mReceive.GetCurrentTime();
         Debug.Log("GAME_CurrentLoopTime " + mCurrentLoopTime);
 
@@ -62,15 +67,30 @@ public class GAME : MonoBehaviour
             p.setCurrentTime(mCurrentLoopTime);
         }
 
-       /* while (indexLevel < 2)
+        CheckErrorByPlayer();
+
+      /* while (indexLevel <= 1)
         {
-            while(indexSBlevel <= 4)
+            while(indexSBlevel <= 3)
             {
                 
-                foreach(PlayerControler p in mPlayers)
+                    
+
+                    while(mCurrentLoopTime < 9600)
                 {
-                    p.InitializeLevel(indexLevel);
+                    CheckErrorByPlayer();
+                    if (checkTot == 4)
+                    {
+                        indexSBlevel++;
+                    }
                 }
+
+
+
+
+
+
+
             }
         }*/
 

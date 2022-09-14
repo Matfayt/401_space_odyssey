@@ -16,9 +16,10 @@ public class PlayerControler : MonoBehaviour
     float mCurrentLoopTime;
     int indexLevel;
     
-    int v =0;
+    int v;
     int nbTarget, nbTouch;
     bool mIsActive = false;
+    int check;
 
     // Start is called before the first frame update
     void Start()
@@ -50,22 +51,31 @@ public class PlayerControler : MonoBehaviour
 
     public void BuzzerButton1_Pressed(InputAction.CallbackContext context)
     {
-        
         if (context.started)
         {
             // check if user action is good !!!
-            if (IsActionValid(0))
-            {
-                v ++; 
+            IsActionValid(0);
 
-            }
 
-        mIsActive =! mIsActive;
+            mIsActive =! mIsActive;
         if (mIsActive)
             {
+
                 Buzzer1.BuzzerPressed(true);
+<<<<<<< Updated upstream
                 Send.SendMessageEvent(mIndexPlayer, 0, indexLevel);
                 nbTouch++;
+=======
+                Send.SendMessage(mIndexPlayer, 0);
+                v += 1;
+                Debug.Log("Player" + mIndexPlayer + "_essais = " + v);
+                bool check;
+                if (check = IsActionValid(0))
+                {
+                    nbTouch++;
+                }
+                
+>>>>>>> Stashed changes
                 mIsActive = !mIsActive;
                 
             }
@@ -78,20 +88,30 @@ public class PlayerControler : MonoBehaviour
     }
     public void BuzzerButton2_Pressed(InputAction.CallbackContext context)
     {
+        
         if (context.started)
         {
             // check if user action is good !!!
-            if (IsActionValid(0))
-            {
-                v++;
-            }
+            //IsActionValid(1);
 
+            
             mIsActive = !mIsActive;
             if (mIsActive)
             {
                 Buzzer2.BuzzerPressed(true);
+<<<<<<< Updated upstream
                 Send.SendMessageEvent(mIndexPlayer, 1, indexLevel);
                 nbTouch++;
+=======
+                Send.SendMessage(mIndexPlayer+(indexLevel*6), 1);
+                v++;
+                Debug.Log("Player"+ mIndexPlayer + "_essais = " + v);
+                bool check;
+                if (check = IsActionValid(0))
+                {
+                    nbTouch++;
+                }
+>>>>>>> Stashed changes
                 mIsActive = !mIsActive;
                 
                 
@@ -104,27 +124,19 @@ public class PlayerControler : MonoBehaviour
         }
     }
 
-    public int CheckPlayer(int mIndexPlayer)
+    public int CheckPlayer()
     {
-        int check = 0;
-        if(nbTouch == nbTarget)
-        {
-            if(v == nbTarget)
-            {
+       int checkPlayer = 0;
 
-                check = 1;
-            }
-            else
-            {
-                check = 0;
-            }
-        }
-        else
+       if (/*nbTouch == nbTarget &*/ v == nbTarget)
         {
-            check = 0;
+            checkPlayer += 1;
         }
-        return check;
+        
+        return checkPlayer;
+
     }
+
 
     public void InitializeLevel(int indexLevel) //Pour tout level
     {
@@ -166,6 +178,7 @@ public class PlayerControler : MonoBehaviour
 
             // Add target to the list
             mTargetsList.Add(target);
+            Debug.Log("nbTarget_" + mIndexPlayer + "= " + nbTarget);
         }
 
     }
@@ -177,7 +190,7 @@ public class PlayerControler : MonoBehaviour
 
     public void setCurrentLevel(int level)
     {
-        indexLevel = level;
+       indexLevel = level;
     }
 
 }
