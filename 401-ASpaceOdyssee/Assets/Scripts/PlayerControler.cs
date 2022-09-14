@@ -14,13 +14,15 @@ public class PlayerControler : MonoBehaviour
 
     List<Target> mTargetsList = new List<Target>();
     float mCurrentLoopTime;
-    int indexLevel;
+    int indexLevel, indexSBLevel;
     
     int v;
     int nbTarget, nbTouch;
     bool mIsActive = false;
     int check;
 
+
+    public bool mIsDemo;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,15 +56,14 @@ public class PlayerControler : MonoBehaviour
         if (context.started)
         {
             // check if user action is good !!!
-            IsActionValid(0);
-
+          
 
             mIsActive =! mIsActive;
         if (mIsActive)
             {
 
                 Buzzer1.BuzzerPressed(true);
-                Send.SendMessageEvent(mIndexPlayer, 0, indexLevel);
+                Send.SendMessageEvent(mIndexPlayer, 0, 0);
                 v ++;
                 Debug.Log("Player" + mIndexPlayer + "_essais = " + v);
                 bool check;
@@ -93,7 +94,7 @@ public class PlayerControler : MonoBehaviour
             if (mIsActive)
             {
                 Buzzer2.BuzzerPressed(true);
-                Send.SendMessageEvent(mIndexPlayer, 1, indexLevel);
+                Send.SendMessageEvent(mIndexPlayer, 1,0);
                 v++;
                 Debug.Log("Player"+ mIndexPlayer + "_essais = " + v);
                 bool check;
@@ -117,7 +118,7 @@ public class PlayerControler : MonoBehaviour
     {
        bool checkPlayer = false;
 
-       if (/*nbTouch == nbTarget &*/ v == nbTarget)
+       if (nbTouch == nbTarget /*& v == nbTarget*/)
         {
             checkPlayer = true;
         }
@@ -175,11 +176,19 @@ public class PlayerControler : MonoBehaviour
     public void setCurrentTime(float time)
     {
         mCurrentLoopTime = time;
+
+        if (mIsDemo == true)
+        {
+            
+
+        }
     }
 
-    public void setCurrentLevel(int level)
+    public void setCurrentLevel(int level, int subLevel)
     {
        indexLevel = level;
+        indexSBLevel = subLevel;
+        
     }
 
 }

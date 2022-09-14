@@ -62,7 +62,7 @@ public class GAME : MonoBehaviour
 
         foreach (PlayerControler p in mPlayers)
         {
-            p.setCurrentLevel(indexLevel);
+            p.setCurrentLevel(indexLevel,indexSBlevel);
         }
         foreach (PlayerControler p in mPlayers)
         {

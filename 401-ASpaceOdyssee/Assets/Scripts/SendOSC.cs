@@ -13,11 +13,12 @@ public class SendOSC : MonoBehaviour
 
     public void SendMessageEvent(int player, int button, int i)
     {
-    
 
+        int track = player + (i * 6);
+        Debug.Log("Track = " + track);
         OscMessage message = new OscMessage();
         message.address = "/Event";
-        message.values.Add(player + (i*6));
+        message.values.Add(track);
         message.values.Add(button);
         mOscControler.Send(message);
         
