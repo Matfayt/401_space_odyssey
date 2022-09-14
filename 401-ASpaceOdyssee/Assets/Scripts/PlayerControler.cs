@@ -17,7 +17,7 @@ public class PlayerControler : MonoBehaviour
     int indexLevel;
     
     int v =0;
-    int nbTarget;
+    int nbTarget, nbTouch;
     bool mIsActive = false;
 
     // Start is called before the first frame update
@@ -65,6 +65,7 @@ public class PlayerControler : MonoBehaviour
             {
                 Buzzer1.BuzzerPressed(true);
                 Send.SendMessage(mIndexPlayer, 0);
+                nbTouch++;
                 mIsActive = !mIsActive;
                 
             }
@@ -90,6 +91,7 @@ public class PlayerControler : MonoBehaviour
             {
                 Buzzer2.BuzzerPressed(true);
                 Send.SendMessage(mIndexPlayer, 1);
+                nbTouch++;
                 mIsActive = !mIsActive;
                 
                 
@@ -105,10 +107,17 @@ public class PlayerControler : MonoBehaviour
     public int CheckPlayer(int mIndexPlayer)
     {
         int check = 0;
-        if(v == nbTarget)
+        if(nbTouch == nbTarget)
         {
+            if(v == nbTarget)
+            {
 
-            check = 1;
+                check = 1;
+            }
+            else
+            {
+                check = 0;
+            }
         }
         else
         {
@@ -125,6 +134,7 @@ public class PlayerControler : MonoBehaviour
         }
 
         v = 0;
+        nbTouch = 0;
     }
 
     

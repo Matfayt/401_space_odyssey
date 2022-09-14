@@ -13,6 +13,7 @@ public class GAME : MonoBehaviour
     public float mCurrentLoopTime;
     //float mLoopLenghtTime = 56.443f;// lenght of the loop
     int indexLevel;
+    int indexSBlevel;
 
 
     public void CheckErrorByPlayer(int indexPLayer)
@@ -36,10 +37,7 @@ public class GAME : MonoBehaviour
 
     void Start()
     {
-        foreach(PlayerControler p in mPlayers)
-        {
-            p.setCurrentLevel(indexLevel);
-        }
+        
     }
 
     public void ReceiveCurrentTime(float timing)
@@ -52,13 +50,28 @@ public class GAME : MonoBehaviour
 
     void Update()
     {
-        mCurrentLoopTime = mReceive.GetCurrentTime();
-
+        mReceive.GetCurrentTime();
         Debug.Log("GAME_CurrentLoopTime " + mCurrentLoopTime);
-       
-        foreach(PlayerControler p in mPlayers)
+
+        foreach (PlayerControler p in mPlayers)
+        {
+            p.setCurrentLevel(indexLevel);
+        }
+        foreach (PlayerControler p in mPlayers)
         {
             p.setCurrentTime(mCurrentLoopTime);
+        }
+
+        while (indexLevel < 2)
+        {
+            while(indexSBlevel <= 4)
+            {
+                
+                foreach(PlayerControler p in mPlayers)
+                {
+                    p.InitializeLevel(indexLevel);
+                }
+            }
         }
 
     }
