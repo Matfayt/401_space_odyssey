@@ -38,8 +38,8 @@ public class SendOSC : MonoBehaviour
     {
         OscMessage message = new OscMessage();
         message.address = "/Loop";
-        message.values.Add(i + 5);
-        message.values.Add(j);
+        message.values.Add(i + 6);
+        message.values.Add(j - 1);
         mOscControler.Send(message);
     }
 
@@ -49,6 +49,14 @@ public class SendOSC : MonoBehaviour
         message.address = "/Stop";
         message.values.Add(x);
         message.values.Add(y);
+        mOscControler.Send(message);
+    }
+
+    public void SendMessageStopAll()
+    {
+        OscMessage message = new OscMessage();
+        message.address = "/StopAll";
+        message.values.Add(0);
         mOscControler.Send(message);
     }
 }
