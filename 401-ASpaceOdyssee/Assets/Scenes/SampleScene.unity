@@ -2874,8 +2874,8 @@ MonoBehaviour:
   timeMs: 0
   mCurrentTicks: 0
   indexLevel: 0
-  indexSBlevel: 0
-  etat: 0
+  indexSBlevel: 3
+  etat: 1
 --- !u!1 &2132291534
 GameObject:
   m_ObjectHideFlags: 0

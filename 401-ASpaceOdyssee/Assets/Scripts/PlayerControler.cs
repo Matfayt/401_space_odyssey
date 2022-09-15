@@ -170,13 +170,13 @@ public class PlayerControler : MonoBehaviour
                     if (t.mIndexButton == 0)
                     {
 
-                        Buzzer1.DispExemple();
+                        Buzzer2.DispExemple();
 
                     }
                     else
                     {
 
-                        Buzzer2.DispExemple();
+                        Buzzer1.DispExemple();
 
                     }
                 }
