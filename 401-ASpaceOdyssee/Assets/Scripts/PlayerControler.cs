@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.GraphicsBuffer;
 
 public class PlayerControler : MonoBehaviour
 {
@@ -10,16 +11,17 @@ public class PlayerControler : MonoBehaviour
     public BuzzerActionControler Buzzer1;
     public BuzzerActionControler Buzzer2;
     public int mIndexPlayer;
-    public float tolerance = 5.0f;
+    public float tolerance = 50.0f;
 
     List<Target> mTargetsList = new List<Target>();
     float mCurrentLoopTime;
-    int indexLevel, indexSBLevel;
+    int indexLevel, indexSBLevel, indexEtat;
     
     int v;
     int nbTarget, nbTouch;
     bool mIsActive = false;
     int check;
+    int triggerExemple = 0;
 
 
     public bool mIsDemo;
@@ -34,7 +36,7 @@ public class PlayerControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 
     bool IsActionValid(int indexButton)
@@ -51,6 +53,21 @@ public class PlayerControler : MonoBehaviour
         return isValid;
     }
 
+
+    public bool CheckPlayer()
+    {
+        bool checkPlayer = false;
+
+        if (/*nbTouch == nbTarget & */v == nbTarget)
+        {
+            checkPlayer = true;
+        }
+
+        return checkPlayer;
+
+    }
+
+
     public void BuzzerButton1_Pressed(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -59,26 +76,36 @@ public class PlayerControler : MonoBehaviour
           
 
             mIsActive =! mIsActive;
-        if (mIsActive)
+            if (indexEtat == 2)
             {
-
-                Buzzer1.BuzzerPressed(true);
-                Send.SendMessageEvent(mIndexPlayer, 0, 0);
-                v ++;
-                Debug.Log("Player" + mIndexPlayer + "_essais = " + v);
-                bool check;
-                if (check = IsActionValid(0))
+                if (mIsActive)
                 {
-                    nbTouch++;
+
+                    Buzzer1.BuzzerPressed(true);
+                    Send.SendMessageEvent(mIndexPlayer, 0, 0);
+                    v++;
+                    Debug.Log("Player" + mIndexPlayer + "_essais = " + v);
+                    bool check;
+                    if (check = IsActionValid(0))
+                    {
+                        nbTouch++;
+                    }
+                    mIsActive = !mIsActive;
+
                 }
-                mIsActive = !mIsActive;
-                
+                else
+                {
+                    Buzzer1.BuzzerPressed(false);
+                }
             }
             else
             {
-                Buzzer1.BuzzerPressed(false);
+                if (mIsActive)
+                {
+                    mIsActive = !mIsActive;
+                }
             }
-            
+
         }
     }
     public void BuzzerButton2_Pressed(InputAction.CallbackContext context)
@@ -91,48 +118,79 @@ public class PlayerControler : MonoBehaviour
 
             
             mIsActive = !mIsActive;
-            if (mIsActive)
+            if (indexEtat == 2)
             {
-                Buzzer2.BuzzerPressed(true);
-                Send.SendMessageEvent(mIndexPlayer, 1,0);
-                v++;
-                Debug.Log("Player"+ mIndexPlayer + "_essais = " + v);
-                bool check;
-                if (check = IsActionValid(0))
+
+                if (mIsActive)
                 {
-                    nbTouch++;
+                    Buzzer2.BuzzerPressed(true);
+                    Send.SendMessageEvent(mIndexPlayer, 1,0);
+                    v++;
+                    Debug.Log("Player"+ mIndexPlayer + "_essais = " + v);
+                    bool check;
+                    if (check = IsActionValid(0))
+                    {
+                        nbTouch++;
+                    }
+                    mIsActive = !mIsActive;
+                
+                
                 }
-                mIsActive = !mIsActive;
-                
-                
+                else
+                {
+                    Buzzer2.BuzzerPressed(false);
+                }
             }
             else
             {
-                Buzzer2.BuzzerPressed(false);
+                if (mIsActive)
+                {
+                    mIsActive = !mIsActive;
+                }
             }
-
         }
     }
 
-    public bool CheckPlayer()
+    public void Exemple()
     {
-       bool checkPlayer = false;
+        Debug.Log("TriggerExemple = " + triggerExemple);
+        if (indexEtat == 1) { 
+            foreach (Target t in mTargetsList)
+            {   
+                if (mCurrentLoopTime >= t.mStartTime && mCurrentLoopTime<=t.mEndTime)
+                {
+                    triggerExemple++;
+                }
+                
+                    if (t.mIndexButton == 0)
+                    {
+                        if (triggerExemple == 1)
+                        {
+                            Buzzer1.DispExemple();
+                        }
+                    }
+                    else
+                    {
+                        if (triggerExemple == 1)
+                        {
+                            Buzzer2.DispExemple();
+                        }
+                    }
+                
 
-       if (nbTouch == nbTarget /*& v == nbTarget*/)
-        {
-            checkPlayer = true;
+            }
         }
-        
-        return checkPlayer;
-
     }
 
 
-    public void InitializeLevel(int indexLevel) //Pour tout level
+
+
+    public void InitializeLevel(int indexList) //Pour tout level
     {
-        if (indexLevel < mMidiEventsLevel.Length)
+        if (indexList < mMidiEventsLevel.Length)
         {
-            fillTargets(mMidiEventsLevel[indexLevel]);
+            fillTargets(mMidiEventsLevel[indexList]);
+
         }
 
         v = 0;
@@ -170,6 +228,11 @@ public class PlayerControler : MonoBehaviour
             mTargetsList.Add(target);
             Debug.Log("nbTarget_" + mIndexPlayer + "= " + nbTarget);
         }
+        foreach (Target t in mTargetsList)
+        {
+            Debug.Log("Liste_" + mIndexPlayer + "= " + t.mStartTime + " " + t.mEndTime + " " + t.mIndexButton);
+           
+        }
 
     }
 
@@ -184,11 +247,12 @@ public class PlayerControler : MonoBehaviour
         }
     }
 
-    public void setCurrentLevel(int level, int subLevel)
+    public void setCurrentLevel(int level, int subLevel,int etat)
     {
        indexLevel = level;
-        indexSBLevel = subLevel;
-        
+       indexSBLevel = subLevel;
+        indexEtat = etat;
+       
     }
 
 }

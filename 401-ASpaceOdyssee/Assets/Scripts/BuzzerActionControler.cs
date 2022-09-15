@@ -6,7 +6,7 @@ public class BuzzerActionControler : MonoBehaviour
 {
     public Material mActiveMaterial;
     public Material mInactiveMaterial;
-    public float wait = 0.5f;
+    public float wait = 2.0f;
     bool mIsActive = false;
 
     IEnumerator ActiveAndWait()
@@ -14,6 +14,7 @@ public class BuzzerActionControler : MonoBehaviour
         GetComponent<MeshRenderer>().material = mActiveMaterial;
         yield return new WaitForSeconds(wait);
         GetComponent<MeshRenderer>().material = mInactiveMaterial;
+        
 
 
     }
@@ -33,6 +34,11 @@ public class BuzzerActionControler : MonoBehaviour
             GetComponent<MeshRenderer>().material = mInactiveMaterial;
             }
         
+    }
+
+    public void DispExemple()
+    {
+        StartCoroutine(ActiveAndWait());
     }
 
 }

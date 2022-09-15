@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -10,15 +11,18 @@ public class GAME : MonoBehaviour
     public SendOSC mSend;
     public ReceiveOSC mReceive;
     public OSC mOscChannel;
-    public float mCurrentLoopTime;
+    public float mCurrentLoopTime = 0;
+    public float timeMs = 0;
+
     //float mLoopLenghtTime = 56.443f;// lenght of the loop
-    public int indexLevel;
-    public int indexSBlevel;
+    public int indexLevel = 0;
+    public int indexSBlevel= 0;
+    public int etat = 0;
     
 
 
-    public void CheckErrorByPlayer()
-    {
+    public bool CheckErrorByPlayer()
+    { bool incr = false;
         int checkTot = 0;
         
         foreach(PlayerControler p in mPlayers)
@@ -27,15 +31,24 @@ public class GAME : MonoBehaviour
             {
                 checkTot ++;
             }
+            Debug.Log("GAME_checkTot =" + checkTot);
         }
+        if (checkTot == 4)
+        {
+            incr = true;
+            Debug.Log("GAME_check = 1");
+        }
+        else { Debug.Log("GAME_check = 0"); }
+        return incr;
         
-        Debug.Log("GAME_checkTot =" + checkTot);
+
+        
     }
 
 
     public void ReceiveCurrentTime(float timing)
     {
-        // mReceive.OnReceiveCurrentTime(timing);
+        //mReceive.OnReceiveCurrentTime(timing);
         mCurrentLoopTime = timing;
 
     }
@@ -47,54 +60,101 @@ public class GAME : MonoBehaviour
     {
         foreach (PlayerControler p in mPlayers)
         {
-            p.InitializeLevel(indexLevel);
+            p.InitializeLevel(0);
         }
+        mReceive.GetCurrentTime();
 
-        
     }
 
 
 
     void Update()
-    {   
-        mReceive.GetCurrentTime();
+    {
+        mCurrentLoopTime = mReceive.GetCurrentTime();
+        timeMs = mReceive.GetMs();
+        float timeNiv = timeMs % 19200;
+
         Debug.Log("GAME_CurrentLoopTime " + mCurrentLoopTime);
+        Debug.Log("GAME_CurrentLoopTime " + timeMs);
+        Debug.Log("GAME_CurrentLoopTime " + timeNiv);
+
+        Debug.Log("GAME_etat =  " + etat);
 
         foreach (PlayerControler p in mPlayers)
         {
-            p.setCurrentLevel(indexLevel,indexSBlevel);
+            p.setCurrentLevel(indexLevel, indexSBlevel, etat);
         }
         foreach (PlayerControler p in mPlayers)
         {
             p.setCurrentTime(mCurrentLoopTime);
         }
 
-        CheckErrorByPlayer();
 
-      /* while (indexLevel <= 1)
+        if (etat == 0)
         {
-            while(indexSBlevel <= 3)
+            mSend.SendMessageStartGame();
+            if (timeMs > 96000.0f)
             {
-                
-                    
+                mSend.SendMessageExemple(indexLevel, indexSBlevel);
+                etat = 1;
+            }
 
-                    while(mCurrentLoopTime < 9600)
-                {
-                    CheckErrorByPlayer();
-                    if (checkTot == 4)
+        }
+
+        else if (etat == 1)
+        {
+            
+            /*foreach (PlayerControler p in mPlayers)
                     {
-                        indexSBlevel++;
+                        p.Exemple();
                     }
+                */
+         
+            if (timeNiv >= 9550.0f && timeNiv <= 9600.0f)
+            {
+                foreach (PlayerControler p in mPlayers)
+                {
+                    p.InitializeLevel(indexSBlevel + (indexLevel * 4));
+                }
+                etat = 2;
+            }
+    
+        }
+        else if (etat == 2)
+        {
+            
+            if (timeNiv >= 19150.0f && timeNiv <= 19200.0f)
+            {
+                if (CheckErrorByPlayer() == true)
+                {
+                    mSend.SendMessageLoop(indexLevel, indexSBlevel); //Send the layer corresponding to the successfull sequence
+                    indexSBlevel++;
+                    
+                    Debug.Log("Bien Joué");
+
                 }
 
+                foreach (PlayerControler p in mPlayers)
+                {
+                    p.InitializeLevel(indexSBlevel + (indexLevel * 4));
+                }
 
+                mSend.SendMessageExemple(indexLevel, indexSBlevel);
+                
+                Debug.Log("indexSBLevel = " + indexSBlevel);
 
-
-
-
-
+               
+                etat = 1;
             }
-        }*/
+            
+        }
+        else etat=3;
+
+
+
+
+
+
 
     }
 
