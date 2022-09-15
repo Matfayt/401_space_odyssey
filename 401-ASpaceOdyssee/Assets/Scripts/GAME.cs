@@ -91,7 +91,13 @@ public class GAME : MonoBehaviour
             p.setCurrentTime(mCurrentLoopTime, mCurrentTicks);
         }
 
+        if(indexSBlevel == 4)
+        {
+            indexLevel++;
+            indexSBlevel = 0;
+        }
 
+        
         if (etat == 0)
         {
             mSend.SendMessageStartGame();
@@ -138,7 +144,7 @@ public class GAME : MonoBehaviour
 
                 foreach (PlayerControler p in mPlayers)
                 {
-                    p.InitializeLevel(indexSBlevel + (indexLevel * 4));
+                    p.InitializeLevel(indexSBlevel + (indexLevel * 4)); //Increment in the Text assets list for all players
                 }
 
                 mSend.SendMessageExemple(indexLevel, indexSBlevel);
@@ -150,7 +156,16 @@ public class GAME : MonoBehaviour
             }
             
         }
-        else etat=3;
+        else if (etat == 3)
+        {
+            mSend.SendMessageEndGame();
+
+        }
+
+        if(indexLevel == 2 && indexSBlevel == 2)
+        {
+            etat = 3;
+        }
 
 
 
