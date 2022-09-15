@@ -71,4 +71,13 @@ public class SendOSC : MonoBehaviour
         message.values.Add(1);
         mOscControler.Send(message);
     }
+
+//Start ending storyline loops (end of game after Loop 3 Lvl3)
+    public void SendMessageEndGame()
+    {  
+        OscMessage message = new OscMessage();
+        message.address = "/EndGame";
+        message.values.Add(1);
+        mOscControler.Send(message);
+    }
 }

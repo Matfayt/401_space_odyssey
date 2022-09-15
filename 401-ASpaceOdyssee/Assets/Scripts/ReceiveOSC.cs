@@ -9,13 +9,14 @@ public class ReceiveOSC : MonoBehaviour
     public OSC mOscControler;
     public int player, button;
     public int i=0;
-    public int mBar, mBeat, mRawTick, mTempo, mAbletonUnit, mAbletonMidiTick, mMs, mCurrentTime;
+    public int mBar, mBeat, mRawTick, mTempo, mAbletonUnit, mAbletonMidiTick, mMs, mCurrentTime, mCurrentTick;
     // Start is called before the first frame update
     void Start()
     {
         mOscControler.SetAddressHandler("/Beat", OnReceiveBeat);
         mOscControler.SetAddressHandler("/Ms", OnReceiveMs);
         mOscControler.SetAddressHandler("/CurrentTime", OnReceiveCurrentTime);
+        mOscControler.SetAddressHandler("/CurrentTick", OnReceiveCurrentTick);
         //mOscControler.SetAddressHandler("/AbletonUnit", OnReceiveAbletonUnit);
         //mOscControler.SetAddressHandler("/AbletonMidiTick", OnReceiveAbletonMidiTick);
         //mOscControler.SetAddressHandler("/Bar", OnReceiveBar);
@@ -59,6 +60,17 @@ public class ReceiveOSC : MonoBehaviour
     public float GetCurrentTime()
     {
         return mCurrentTime;
+    }
+
+//Current Ticks %7680 (going back to zero at the end of loop)
+    void OnReceiveCurrentTick(OscMessage message)
+    {
+        mCurrentTick = message.GetInt(0);
+        Debug.Log("CurrentTick = " + mCurrentTick);
+    }
+    public float GetCurrentTick()
+    {
+        return mCurrentTick;
     }
 
     /*void OnReceiveAbletonUnit(OscMessage message)
