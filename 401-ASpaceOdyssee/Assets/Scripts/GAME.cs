@@ -13,6 +13,7 @@ public class GAME : MonoBehaviour
     public OSC mOscChannel;
     public float mCurrentLoopTime = 0;
     public float timeMs = 0;
+    public float mCurrentTicks;
 
     //float mLoopLenghtTime = 56.443f;// lenght of the loop
     public int indexLevel = 0;
@@ -72,6 +73,7 @@ public class GAME : MonoBehaviour
     {
         mCurrentLoopTime = mReceive.GetCurrentTime();
         timeMs = mReceive.GetMs();
+        mCurrentTicks = mReceive.GetCurrentTick();
         float timeNiv = timeMs % 19200;
 
         Debug.Log("GAME_CurrentLoopTime " + mCurrentLoopTime);
@@ -86,7 +88,7 @@ public class GAME : MonoBehaviour
         }
         foreach (PlayerControler p in mPlayers)
         {
-            p.setCurrentTime(mCurrentLoopTime);
+            p.setCurrentTime(mCurrentLoopTime, mCurrentTicks);
         }
 
 
@@ -104,11 +106,11 @@ public class GAME : MonoBehaviour
         else if (etat == 1)
         {
             
-            /*foreach (PlayerControler p in mPlayers)
+            foreach (PlayerControler p in mPlayers)
                     {
                         p.Exemple();
                     }
-                */
+                
          
             if (timeNiv >= 9550.0f && timeNiv <= 9600.0f)
             {

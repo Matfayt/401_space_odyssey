@@ -6,7 +6,7 @@ public class BuzzerActionControler : MonoBehaviour
 {
     public Material mActiveMaterial;
     public Material mInactiveMaterial;
-    public float wait = 2.0f;
+    public float wait = 1.0f;
     bool mIsActive = false;
 
     IEnumerator ActiveAndWait()

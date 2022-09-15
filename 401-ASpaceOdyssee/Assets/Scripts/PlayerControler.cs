@@ -11,10 +11,12 @@ public class PlayerControler : MonoBehaviour
     public BuzzerActionControler Buzzer1;
     public BuzzerActionControler Buzzer2;
     public int mIndexPlayer;
+    
     public float tolerance = 50.0f;
 
     List<Target> mTargetsList = new List<Target>();
     float mCurrentLoopTime;
+    float mCurrentTicks, mPreviousTicks = -1;
     int indexLevel, indexSBLevel, indexEtat;
     
     int v;
@@ -23,8 +25,6 @@ public class PlayerControler : MonoBehaviour
     int check;
     int triggerExemple = 0;
 
-
-    public bool mIsDemo;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +36,7 @@ public class PlayerControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        
     }
 
     bool IsActionValid(int indexButton)
@@ -154,31 +154,34 @@ public class PlayerControler : MonoBehaviour
     public void Exemple()
     {
         Debug.Log("TriggerExemple = " + triggerExemple);
+        
         if (indexEtat == 1) { 
             foreach (Target t in mTargetsList)
-            {   
-                if (mCurrentLoopTime >= t.mStartTime && mCurrentLoopTime<=t.mEndTime)
+            {
+                Debug.Log("Target = " + ((t.mStartTime + tolerance) / 0.8f).ToString());
+                Debug.Log("current tick = " + mCurrentTicks);
+                if (mPreviousTicks != -1 && (t.mStartTime + tolerance) / 0.8f <= mCurrentTicks
+                    && (t.mStartTime + tolerance) / 0.8f > mPreviousTicks)
                 {
                     triggerExemple++;
-                }
-                
+
+
                     if (t.mIndexButton == 0)
                     {
-                        if (triggerExemple == 1)
-                        {
-                            Buzzer1.DispExemple();
-                        }
+
+                        Buzzer1.DispExemple();
+
                     }
                     else
                     {
-                        if (triggerExemple == 1)
-                        {
-                            Buzzer2.DispExemple();
-                        }
-                    }
-                
 
+                        Buzzer2.DispExemple();
+
+                    }
+                }
             }
+
+            mPreviousTicks = mCurrentTicks;
         }
     }
 
@@ -236,22 +239,18 @@ public class PlayerControler : MonoBehaviour
 
     }
 
-    public void setCurrentTime(float time)
-    {
+    public void setCurrentTime(float time, float ticks)
+    {   
         mCurrentLoopTime = time;
-
-        if (mIsDemo == true)
-        {
-            
-
-        }
+        mCurrentTicks = ticks;
+        
     }
 
     public void setCurrentLevel(int level, int subLevel,int etat)
     {
        indexLevel = level;
        indexSBLevel = subLevel;
-        indexEtat = etat;
+       indexEtat = etat;
        
     }
 
