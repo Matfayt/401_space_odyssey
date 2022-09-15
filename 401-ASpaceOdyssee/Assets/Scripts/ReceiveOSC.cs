@@ -31,7 +31,7 @@ public class ReceiveOSC : MonoBehaviour
     void OnReceiveBeat(OscMessage message)
     {
         mBeat = message.GetInt(0);
-        Debug.Log("Beat = " + mBeat);
+        //Debug.Log("Beat = " + mBeat);
     }
     public float GetBeat()
     {
@@ -42,7 +42,7 @@ public class ReceiveOSC : MonoBehaviour
     void OnReceiveMs(OscMessage message)
     {
         mMs = message.GetInt(0);
-        Debug.Log("Ms = " + mMs);
+        //Debug.Log("Ms = " + mMs);
     }
     public float GetMs()
     {
@@ -53,7 +53,7 @@ public class ReceiveOSC : MonoBehaviour
     void OnReceiveCurrentTime(OscMessage message)
     {
         mCurrentTime = message.GetInt(0);
-        Debug.Log("CurrentTime = " + mCurrentTime);
+        //Debug.Log("CurrentTime = " + mCurrentTime);
     }
 
     public float GetCurrentTime()
