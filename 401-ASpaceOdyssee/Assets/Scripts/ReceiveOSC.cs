@@ -66,7 +66,7 @@ public class ReceiveOSC : MonoBehaviour
     void OnReceiveCurrentTick(OscMessage message)
     {
         mCurrentTick = message.GetInt(0);
-        Debug.Log("CurrentTick = " + mCurrentTick);
+        //Debug.Log("CurrentTick = " + mCurrentTick);
     }
     public float GetCurrentTick()
     {

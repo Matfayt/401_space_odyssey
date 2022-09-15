@@ -64,6 +64,7 @@ public class GAME : MonoBehaviour
             p.InitializeLevel(0);
         }
         mReceive.GetCurrentTime();
+        mSend.SendMessageStartGame();
 
     }
 
@@ -76,11 +77,6 @@ public class GAME : MonoBehaviour
         mCurrentTicks = mReceive.GetCurrentTick();
         float timeNiv = timeMs % 19200;
 
-        Debug.Log("GAME_CurrentLoopTime " + mCurrentLoopTime);
-        Debug.Log("GAME_CurrentLoopTime " + timeMs);
-        Debug.Log("GAME_CurrentLoopTime " + timeNiv);
-
-        Debug.Log("GAME_etat =  " + etat);
 
         foreach (PlayerControler p in mPlayers)
         {
@@ -100,7 +96,7 @@ public class GAME : MonoBehaviour
         
         if (etat == 0)
         {
-            mSend.SendMessageStartGame();
+            
             if (timeMs > 96000.0f)
             {
                 mSend.SendMessageExemple(indexLevel, indexSBlevel);
@@ -148,8 +144,6 @@ public class GAME : MonoBehaviour
                 }
 
                 mSend.SendMessageExemple(indexLevel, indexSBlevel);
-                
-                Debug.Log("indexSBLevel = " + indexSBlevel);
 
                
                 etat = 1;

@@ -153,16 +153,17 @@ public class PlayerControler : MonoBehaviour
 
     public void Exemple()
     {
-        Debug.Log("TriggerExemple = " + triggerExemple);
         
         if (indexEtat == 1) { 
             foreach (Target t in mTargetsList)
             {
-                Debug.Log("Target = " + ((t.mStartTime + tolerance) / 0.8f).ToString());
-                Debug.Log("current tick = " + mCurrentTicks);
+                //Debug.Log("Target = " + ((t.mStartTime + tolerance) / 0.8f).ToString());
+                //Debug.Log("current tick = " + mCurrentTicks);
                 if (mPreviousTicks != -1 && (t.mStartTime + tolerance) / 0.8f <= mCurrentTicks
                     && (t.mStartTime + tolerance) / 0.8f > mPreviousTicks)
                 {
+                    Debug.Log("player " + mIndexPlayer + " trigger at time = " + t.mStartTime);
+
                     triggerExemple++;
 
 
@@ -229,11 +230,11 @@ public class PlayerControler : MonoBehaviour
 
             // Add target to the list
             mTargetsList.Add(target);
-            Debug.Log("nbTarget_" + mIndexPlayer + "= " + nbTarget);
+            //Debug.Log("nbTarget_" + mIndexPlayer + "= " + nbTarget);
         }
         foreach (Target t in mTargetsList)
         {
-            Debug.Log("Liste_" + mIndexPlayer + "= " + t.mStartTime + " " + t.mEndTime + " " + t.mIndexButton);
+            //Debug.Log("Liste_" + mIndexPlayer + "= " + t.mStartTime + " " + t.mEndTime + " " + t.mIndexButton);
            
         }
 
