@@ -12,6 +12,7 @@ public class GAME : MonoBehaviour
     public ReceiveOSC mReceive;
     public OSC mOscChannel;
     public float mCurrentLoopTime = 0;
+    float mPreviousCurrentTime = -1;
     public float timeMs = 0;
     public float mCurrentTicks;
 
@@ -32,14 +33,12 @@ public class GAME : MonoBehaviour
             {
                 checkTot ++;
             }
-            Debug.Log("GAME_checkTot =" + checkTot);
         }
         if (checkTot == 4)
         {
             incr = true;
-            Debug.Log("GAME_check = 1");
         }
-        else { Debug.Log("GAME_check = 0"); }
+       
         return incr;
         
 
@@ -87,19 +86,22 @@ public class GAME : MonoBehaviour
             p.setCurrentTime(mCurrentLoopTime, mCurrentTicks);
         }
 
-        if(indexSBlevel == 4)
+        if(indexSBlevel == 4) //condition to pass a level
         {
             indexLevel++;
             indexSBlevel = 0;
         }
+        if (indexLevel == 2 && indexSBlevel == 2) //Condition to end game
+        {
+            etat = 3;
+        }
 
-        
+
         if (etat == 0)
         {
             
             if (timeMs > 96000.0f)
             {
-                mSend.SendMessageExemple(indexLevel, indexSBlevel);
                 etat = 1;
             }
 
@@ -107,7 +109,20 @@ public class GAME : MonoBehaviour
 
         else if (etat == 1)
         {
-            
+            //if (mPreviousCurrentTime != -1 && 0 <= mCurrentLoopTime && mPreviousCurrentTime >=0 )
+            if(mCurrentLoopTime >= 0 && mCurrentLoopTime < 10)
+            {
+                mSend.SendMessageExemple(indexLevel, indexSBlevel);
+
+                foreach (PlayerControler p in mPlayers)
+                {
+                    p.InitializeLevel(indexSBlevel + (indexLevel * 4));
+                }
+
+                mPreviousCurrentTime = mCurrentLoopTime;
+                Debug.Log("Go");
+            }
+
             foreach (PlayerControler p in mPlayers)
                     {
                         p.Exemple();
@@ -143,7 +158,7 @@ public class GAME : MonoBehaviour
                     p.InitializeLevel(indexSBlevel + (indexLevel * 4)); //Increment in the Text assets list for all players
                 }
 
-                mSend.SendMessageExemple(indexLevel, indexSBlevel);
+                //mSend.SendMessageExemple(indexLevel, indexSBlevel);
 
                
                 etat = 1;
@@ -156,10 +171,7 @@ public class GAME : MonoBehaviour
 
         }
 
-        if(indexLevel == 2 && indexSBlevel == 2)
-        {
-            etat = 3;
-        }
+        
 
 
 

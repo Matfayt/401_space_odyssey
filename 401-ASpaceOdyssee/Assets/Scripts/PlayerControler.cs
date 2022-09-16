@@ -84,7 +84,7 @@ public class PlayerControler : MonoBehaviour
                     Buzzer1.BuzzerPressed(true);
                     Send.SendMessageEvent(mIndexPlayer, 0, 0);
                     v++;
-                    Debug.Log("Player" + mIndexPlayer + "_essais = " + v);
+                    //.Log("Player" + mIndexPlayer + "_essais = " + v);
                     bool check;
                     if (check = IsActionValid(0))
                     {
@@ -126,7 +126,7 @@ public class PlayerControler : MonoBehaviour
                     Buzzer2.BuzzerPressed(true);
                     Send.SendMessageEvent(mIndexPlayer, 1,0);
                     v++;
-                    Debug.Log("Player"+ mIndexPlayer + "_essais = " + v);
+                    //Debug.Log("Player"+ mIndexPlayer + "_essais = " + v);
                     bool check;
                     if (check = IsActionValid(0))
                     {
