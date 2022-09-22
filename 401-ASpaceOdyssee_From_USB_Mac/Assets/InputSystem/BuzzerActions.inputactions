@@ -1,0 +1,254 @@
+{
+    "name": "BuzzerActions",
+    "maps": [
+        {
+            "name": "Buzzer",
+            "id": "73c065cc-7a3f-40f3-8d01-6ca240935f35",
+            "actions": [
+                {
+                    "name": "YR",
+                    "type": "Button",
+                    "id": "fa6a105a-99d5-4427-b88c-516458be2d84",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "YB",
+                    "type": "Button",
+                    "id": "f1e41982-01e1-4fcc-ae4f-24b7fe55a648",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "YY",
+                    "type": "Button",
+                    "id": "3e4b9fdf-6873-4682-b82e-dca89257ce77",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "GR",
+                    "type": "Button",
+                    "id": "3e9ca2f8-02db-4d4c-a01c-42ebea766ab5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "GB",
+                    "type": "Button",
+                    "id": "4a23fd0e-a91b-4336-ae62-89d739190fe9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "GY",
+                    "type": "Button",
+                    "id": "12c731a5-4f3e-45d8-827b-57ca4f00ab58",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RR",
+                    "type": "Button",
+                    "id": "42dda016-55c7-415b-8182-efcccc436619",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RB",
+                    "type": "Button",
+                    "id": "1898da8f-3315-413c-a5e1-b157bd9f3905",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RY",
+                    "type": "Button",
+                    "id": "585070ec-6a4f-4897-bdf8-dfa188299b5b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "BR",
+                    "type": "Button",
+                    "id": "2e1babd7-0451-4a64-8624-6c64e04424b2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "BB",
+                    "type": "Button",
+                    "id": "4eedfbff-1722-4767-9a2a-c0cddabd9499",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "BY",
+                    "type": "Button",
+                    "id": "09c4f3b5-432f-4675-bfd2-a289aff1c47b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6c109b18-772f-42f5-8f96-c0ccb2693636",
+                    "path": "<HID::Namtai Buzz>/button6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "YR",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "74079b93-66ae-42a4-bd1b-32ac8a8af68e",
+                    "path": "<HID::Namtai Buzz>/button10",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "YB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2affb40a-aacc-4dd3-b552-ba9b627bab74",
+                    "path": "<HID::Namtai Buzz>/button7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "YY",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cf87f1b2-b806-452a-a342-91b7e7a78001",
+                    "path": "<HID::Namtai Buzz>/button16",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GR",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f5147739-8a3e-42ab-b997-d7d05fddc984",
+                    "path": "<HID::Namtai Buzz>/button20",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d7bfc868-94d7-4cd6-a493-0a6aca8dec38",
+                    "path": "<HID::Namtai Buzz>/button17",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GY",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "66a1d15c-82ca-48b6-be95-8af3ddac085d",
+                    "path": "<HID::Namtai Buzz>/button11",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RR",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5d8d1678-5c0e-46f3-8f6c-5a5488f04b47",
+                    "path": "<HID::Namtai Buzz>/button15",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "be418605-a4ec-4f82-b8bd-56ff7ea2bd4f",
+                    "path": "<HID::Namtai Buzz>/button12",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RY",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5d8f7a60-9a69-4db2-8ad9-affaa820658d",
+                    "path": "<HID::Namtai Buzz>/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BR",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cb62c9c4-2caf-4efb-97b1-dfb9ac09df5b",
+                    "path": "<HID::Namtai Buzz>/button5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9a3ab6a4-dd7a-4a30-a7d6-0107c3cb17c7",
+                    "path": "<HID::Namtai Buzz>/button2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BY",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

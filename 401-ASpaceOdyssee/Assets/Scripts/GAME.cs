@@ -12,7 +12,7 @@ public class GAME : MonoBehaviour
     public ReceiveOSC mReceive;
     public OSC mOscChannel;
     public float mCurrentLoopTime = 0;
-    float mPreviousCurrentTime = -1;
+    public float mPreviousCurrentTime = -1;
     public float timeMs = 0;
     public float mCurrentTicks;
 
@@ -109,8 +109,9 @@ public class GAME : MonoBehaviour
 
         else if (etat == 1)
         {
-            //if (mPreviousCurrentTime != -1 && 0 <= mCurrentLoopTime && mPreviousCurrentTime >=0 )
-            if(mCurrentLoopTime >= 0 && mCurrentLoopTime < 10)
+            mPreviousCurrentTime = mCurrentLoopTime;
+            
+            if(mPreviousCurrentTime > mCurrentLoopTime && mPreviousCurrentTime != -1)
             {
                 mSend.SendMessageExemple(indexLevel, indexSBlevel);
 
@@ -119,9 +120,10 @@ public class GAME : MonoBehaviour
                     p.InitializeLevel(indexSBlevel + (indexLevel * 4));
                 }
 
-                mPreviousCurrentTime = mCurrentLoopTime;
-                Debug.Log("Go");
+                
+                Debug.Log("Go! current time ="+mCurrentLoopTime+"Previous Time ="+mPreviousCurrentTime);
             }
+            
 
             foreach (PlayerControler p in mPlayers)
                     {
