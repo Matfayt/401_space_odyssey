@@ -39,7 +39,7 @@ public class PlayerControler : MonoBehaviour
         
     }
 
-    bool IsActionValid(int indexButton)
+    bool IsActionValid(int indexButton) //check if the player push the right button at the right moment based on the mid files analysis
     {
         bool isValid = false;
 
@@ -54,7 +54,7 @@ public class PlayerControler : MonoBehaviour
     }
 
 
-    public bool CheckPlayer()
+    public bool CheckPlayer() //check if the player has all its interaction correct
     {
         bool checkPlayer = false;
 
@@ -69,7 +69,7 @@ public class PlayerControler : MonoBehaviour
     }
 
 
-    public void BuzzerButton1_Pressed(InputAction.CallbackContext context)
+    public void BuzzerButton1_Pressed(InputAction.CallbackContext context) //triggers the right clip for the first button and call the IsValidFunction
     {
         if (context.started)
         {
@@ -109,7 +109,7 @@ public class PlayerControler : MonoBehaviour
 
         }
     }
-    public void BuzzerButton2_Pressed(InputAction.CallbackContext context)
+    public void BuzzerButton2_Pressed(InputAction.CallbackContext context) //same as button 1
     {
         
         if (context.started)
@@ -152,14 +152,12 @@ public class PlayerControler : MonoBehaviour
         }
     }
 
-    public void Exemple()
+    public void Exemple() //display the right sequence base on the Mid files analysis
     {
         
         if (indexEtat == 1) { 
             foreach (Target t in mTargetsList)
             {
-                //Debug.Log("Target = " + ((t.mStartTime + tolerance) / 0.8f).ToString());
-                //Debug.Log("current tick = " + mCurrentTicks);
                 if (mPreviousTicks != -1 && (t.mStartTime + tolerance) / 0.8f <= mCurrentTicks
                     && (t.mStartTime + tolerance) / 0.8f > mPreviousTicks)
                 {
@@ -204,7 +202,7 @@ public class PlayerControler : MonoBehaviour
 
     
 
-    void fillTargets(TextAsset textAsset)
+    void fillTargets(TextAsset textAsset) //analyse the mid files (text formats)
     {
 
         mTargetsList.Clear();
@@ -241,14 +239,14 @@ public class PlayerControler : MonoBehaviour
 
     }
 
-    public void setCurrentTime(float time, float ticks)
+    public void setCurrentTime(float time, float ticks) //recieve time infos
     {   
         mCurrentLoopTime = time;
         mCurrentTicks = ticks;
         
     }
 
-    public void setCurrentLevel(int level, int subLevel,int etat)
+    public void setCurrentLevel(int level, int subLevel,int etat) //receive level infos
     {
        indexLevel = level;
        indexSBLevel = subLevel;
