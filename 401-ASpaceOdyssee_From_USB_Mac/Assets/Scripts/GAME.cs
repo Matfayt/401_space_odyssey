@@ -183,11 +183,17 @@ public class GAME : MonoBehaviour
         }
         else if (etat == 3)
         {
-            mSend.SendMessageEndGame();
+            
+        
+         mSend.SendMessageEndGame();
 
+            etat = 4;
+
+            
         }
+        
         mPreviousCurrentTime = mCurrentLoopTime;
-          
+
 
 
 
