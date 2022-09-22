@@ -64,7 +64,8 @@ public class GAME : MonoBehaviour
             p.InitializeLevel(0);
         }
         mReceive.GetCurrentTime();
-        mSend.SendMessageStartGame();
+
+        mSend.SendMessageStartGame(); //start the Ableton session through OSC
 
     }
 
@@ -77,16 +78,16 @@ public class GAME : MonoBehaviour
         mCurrentTicks = mReceive.GetCurrentTick();
         float timeNiv = timeMs % 19200;
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space)) //Short-cut to win a sublevel without using the controllers
         {
             check = true;
         }
 
-        foreach (PlayerControler p in mPlayers)
+        foreach (PlayerControler p in mPlayers) //Shares the information about the game level with all the player objects
         {
             p.setCurrentLevel(indexLevel, indexSBlevel, etat);
         }
-        foreach (PlayerControler p in mPlayers)
+        foreach (PlayerControler p in mPlayers) //Shares the time sync infos with all the player objects
         {
             p.setCurrentTime(mCurrentLoopTime, mCurrentTicks);
         }
@@ -102,7 +103,7 @@ public class GAME : MonoBehaviour
         }
 
 
-        if (etat == 0)
+        if (etat == 0)  //state 0 is the introduction sample, max deals alone with the introduction sequence triggered in the tsart loop
         {
             
             if (timeMs > 96000.0f)
@@ -112,13 +113,13 @@ public class GAME : MonoBehaviour
 
         }
 
-        else if (etat == 1)
+        else if (etat == 1)  //timeline and condition during the presentation of an exemple
         {
             mPreviousCurrentTime = mCurrentLoopTime;
             
             if(mPreviousCurrentTime > mCurrentLoopTime && mPreviousCurrentTime != -1)
             {
-                mSend.SendMessageExemple(indexLevel, indexSBlevel);
+                mSend.SendMessageExemple(indexLevel, indexSBlevel); //Trigger th right ablton exemple clip
 
                 foreach (PlayerControler p in mPlayers)
                 {
@@ -130,13 +131,13 @@ public class GAME : MonoBehaviour
             }
             
 
-            foreach (PlayerControler p in mPlayers)
+            foreach (PlayerControler p in mPlayers) //Display the sequence on the User interface
                     {
                         p.Exemple();
                     }
                 
          
-            if (timeNiv >= 9550.0f && timeNiv <= 9600.0f)
+            if (timeNiv >= 9550.0f && timeNiv <= 9600.0f) //At the end of the exemple, turn to gama mode
             {
                 foreach (PlayerControler p in mPlayers)
                 {
@@ -146,7 +147,7 @@ public class GAME : MonoBehaviour
             }
     
         }
-        else if (etat == 2)
+        else if (etat == 2) //timeline in game mode
         {
             
             if (timeNiv >= 19150.0f && timeNiv <= 19200.0f)
@@ -164,27 +165,16 @@ public class GAME : MonoBehaviour
                 {
                     p.InitializeLevel(indexSBlevel + (indexLevel * 4)); //Increment in the Text assets list for all players
                 }
-
-                //mSend.SendMessageExemple(indexLevel, indexSBlevel);
-
                
                 etat = 1;
             }
             
         }
-        else if (etat == 3)
+        else if (etat == 3) //conclusion is triggered if level = 2 and SBlevel = 3
         {
             mSend.SendMessageEndGame();
 
         }
-
-        
-
-
-
-
-
-
 
     }
 
