@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class GAME : MonoBehaviour
 
-{
+{ 
     public PlayerControler[] mPlayers;
     public SendOSC mSend;
     public ReceiveOSC mReceive;
@@ -20,6 +20,7 @@ public class GAME : MonoBehaviour
     public int indexLevel = 0;
     public int indexSBlevel= 0;
     public int etat = 0;
+    bool check = false;
     
 
 
@@ -34,13 +35,13 @@ public class GAME : MonoBehaviour
                 checkTot ++;
             }
         }
-        if (checkTot == 4)
+        if (checkTot == 4 || check ==true)
         {
             incr = true;
+            check = false;
         }
        
         return incr;
-        
 
         
     }
@@ -76,6 +77,10 @@ public class GAME : MonoBehaviour
         mCurrentTicks = mReceive.GetCurrentTick();
         float timeNiv = timeMs % 19200;
 
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            check = true;
+        }
 
         foreach (PlayerControler p in mPlayers)
         {
